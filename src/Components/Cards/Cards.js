@@ -1,14 +1,19 @@
 import React from "react";
 import Card from "../Card/Card.js"
+import "./Cards.css"
 
 const Cards = () => {
     return (
-            <div className="container">
+            <div className="container-fluid Cards">
                 <div className="row">
-                        <Card className="col-sm"/>
-                        <Card className="col-sm"/>
-                        <Card className="col-sm"/>
-                        <Card className="col-sm"/>
+                        <Card className = "card" />
+                        <Card />
+                        <Card />
+                        <Card/>
+                        <Card />
+                        <Card/>
+                        <Card />
+                        <Card/>
                 </div>
             </div>
 
