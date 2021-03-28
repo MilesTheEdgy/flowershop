@@ -1,133 +1,57 @@
 import React from "react";
-import Flower from "../../Images/flower.png";
 import "./SideBar.css";
-import $ from "jquery";
-import Cards from "../Cards/Cards.js";
 
+class Sidebar extends React.Component {
 
-class SideBar extends React.Component {
-
-    componentDidMount () {
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
+    constructor() {
+        super()
+        this.state = {
+            isDropdownActiveFlowers: false,
+            isDropdownActiveDIY: false
+        }
     }
 
-  render () {
-    return (
-        <div className="wrapper">
-        <nav id="sidebar">
-            <div className="sidebar-header">
-                <h3>Flower </h3>
-                <h3> Shop</h3>
-                <strong>FS</strong>
-            </div>
-
-            <ul className="list-unstyled components">
-                <li className="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-                        <i className="fas fa-home"></i>
-                        Flowers
-                    </a>
-                    <ul className="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Purchase Flowers</a>
-                        </li>
-                        <li>
-                            <a href="#">Purchase Seeds</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="fas fa-briefcase"></i>
-                        About
-                    </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-                        <i className="fas fa-copy"></i>
-                        Pages
-                    </a>
-                    <ul className="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="fas fa-image"></i>
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="fas fa-question"></i>
-                        FAQ
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
-                </li>
-            </ul>
-
-            <ul className="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" className="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" className="article">Back to article</a>
-                </li>
-            </ul>
-        </nav>
-
-        <div id="content">
-
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" className="btn btn-info">
-                        <i className="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button className="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i className="fas fa-align-justify"></i>
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="nav navbar-nav ml-auto">
-                            <li className="nav-item active">
-                                <a className="nav-link" href="#">Page</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Page</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Page</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <Cards className = "Cards"/>
-        </div>
-    </div>
-    );
-  }
+    displayDropdownFlowers = () => {
+        this.setState({isDropdownActiveFlowers: !this.state.isDropdownActiveFlowers})
+ }
+    displayDropdownDIY = () => {
+        this.setState({isDropdownActiveDIY: !this.state.isDropdownActiveDIY})
 }
-  
-  export default SideBar;
+
+    render () {
+        let dropActiveFlowers = this.state.isDropdownActiveFlowers;
+        let dropActiveDIY = this.state.isDropdownActiveDIY;
+        return (
+            <div className="sidenav">
+                <h1 className = "Sidebar-Name" >Flower Shop</h1>
+                <a href="#about">Home</a>
+                <a href="#services">Shop</a>
+                <button className={dropActiveFlowers? "dropdown-btn active" : "dropdown-btn"} onClick = {this.displayDropdownFlowers}>Flowers
+                    <i className="fa fa-caret-down"></i>
+                </button>
+                    <div className={dropActiveFlowers? "dropdown-container-on" : "dropdown-container-off"}>
+                        <a href="#">Orchids</a>
+                        <a href="#">Carnations</a>
+                        <a href="#">Daisies</a>
+                        <a href="#">Roses</a>
+                        <a href="#">Sunflowers</a>
+                        <a href="#">Tulips</a>
+                    </div>
+                <button className={dropActiveDIY? "dropdown-btn active" : "dropdown-btn"} onClick = {this.displayDropdownDIY}>DIY
+                    <i className="fa fa-caret-down"></i>
+                </button>
+                    <div className={dropActiveDIY? "dropdown-container-on" : "dropdown-container-off"}>
+                        <a href="#">Seeds</a>
+                        <a href="#">Soil</a>
+                        <a href="#">Buckets</a>
+                    </div>
+                <a href="#contact">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        )
+
+    }
+
+};
+
+export default Sidebar;
