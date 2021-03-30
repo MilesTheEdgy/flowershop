@@ -1,5 +1,6 @@
 import React from "react";
 import "./SideBar.css";
+import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
 
@@ -18,14 +19,16 @@ class Sidebar extends React.Component {
         this.setState({isDropdownActiveDIY: !this.state.isDropdownActiveDIY})
 }
 
+
+
     render () {
         let dropActiveFlowers = this.state.isDropdownActiveFlowers;
         let dropActiveDIY = this.state.isDropdownActiveDIY;
         return (
             <div className="sidenav">
                 <h1 className = "Sidebar-Name" >Flower Shop</h1>
-                <a href="#about">Home</a>
-                <a href="#services">Shop</a>
+                <Link to="/home">Home</Link>
+                <a href="">Shop</a>
                 <button className={dropActiveFlowers? "dropdown-btn active" : "dropdown-btn"} onClick = {this.displayDropdownFlowers}>Flowers
                     <i className="fa fa-caret-down"></i>
                 </button>
@@ -45,13 +48,11 @@ class Sidebar extends React.Component {
                         <a href="#">Soil</a>
                         <a href="#">Buckets</a>
                     </div>
-                <a href="#contact">About</a>
+                <Link to = "/about"> About </Link>
                 <a href="#contact">Contact</a>
             </div>
         )
-
     }
-
 };
 
 export default Sidebar;
