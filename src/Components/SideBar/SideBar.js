@@ -28,7 +28,7 @@ class Sidebar extends React.Component {
             <div className="sidenav">
                 <h1 className = "Sidebar-Name" >Flower Shop</h1>
                 <Link to="/home">Home</Link>
-                <a href="">Shop</a>
+                <Link to="/shop">Shop</Link>
                 <button className={dropActiveFlowers? "dropdown-btn active" : "dropdown-btn"} onClick = {this.displayDropdownFlowers}>Flowers
                     <i className="fa fa-caret-down"></i>
                 </button>

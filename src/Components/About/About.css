@@ -1,0 +1,35 @@
+.Headerr-1 {
+    font-size: 4rem;
+}
+
+.Headerr-2 {
+}
+
+.paragraph-1 {
+    padding-left: 205px ;
+}
+
+.paragraph-2 {
+    padding-left: 205px ;
+}
+
+
+
+
+/* @media (max-width: 1320x) {
+    .container{
+        max-width: 300px;
+    }
+} */
+
+/* @media (max-width: 1525px) {
+    .container{
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 1190px) {
+    .container{
+        max-width: 300px;
+    }
+} */
