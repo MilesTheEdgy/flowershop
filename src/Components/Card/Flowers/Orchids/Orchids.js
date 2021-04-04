@@ -4,7 +4,7 @@ import OrchidsImage from "../../../../Images/Orchids.jpg";
 
 const Orchids = () => {
     return (
-            <div className="card cardStyle" style={{width: "18rem"}}>
+            <div className="card cardStyle border border-success rounded" style={{width: "18rem"}}>
                 <img src= {OrchidsImage} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">Orchids</h5>

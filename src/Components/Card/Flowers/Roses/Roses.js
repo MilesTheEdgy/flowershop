@@ -6,7 +6,7 @@ import RosesImage from "../../../../Images/Roses.jpg";
 
 const Roses = () => {
     return (
-            <div className="card cardStyle" style={{width: "18rem"}}>
+            <div className="card cardStyle border border-success rounded" style={{width: "18rem"}}>
                 <img src= {RosesImage} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">Roses</h5>

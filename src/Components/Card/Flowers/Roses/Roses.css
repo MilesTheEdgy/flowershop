@@ -1,4 +1,10 @@
 .cardStyle {
     margin-top: 20px;
     margin-left: 10px ;
+    font-family: 'Abel', sans-serif;
 }
+
+/* .card {
+    border: groove;
+    border-radius: 10px;
+} */

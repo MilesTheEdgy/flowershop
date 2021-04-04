@@ -1,6 +1,8 @@
 import React from "react";
 import "./SideBar.css";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
+
 
 class Sidebar extends React.Component {
 
@@ -8,7 +10,8 @@ class Sidebar extends React.Component {
         super()
         this.state = {
             isDropdownActiveFlowers: false,
-            isDropdownActiveDIY: false
+            isDropdownActiveDIY: false,
+            isSidebarActive : false
         }
     }
 
@@ -18,38 +21,61 @@ class Sidebar extends React.Component {
     displayDropdownDIY = () => {
         this.setState({isDropdownActiveDIY: !this.state.isDropdownActiveDIY})
 }
+    toggleNav = () => {
+        this.setState({isSidebarActive: !this.state.isSidebarActive})
+        
+    }
 
 
 
     render () {
-        let dropActiveFlowers = this.state.isDropdownActiveFlowers;
-        let dropActiveDIY = this.state.isDropdownActiveDIY;
+        let sidebarActive = this.state.isSidebarActive;
+        
+        let flowerBtnClass = classNames({
+            "dropdown-btn": !this.state.isDropdownActiveFlowers,
+            "dropdown-btn active": this.state.isDropdownActiveFlowers,
+            });
+        let DIYBtnClass = classNames({
+            "dropdown-btn": !this.state.isDropdownActiveDIY,
+            "dropdown-btn active": this.state.isDropdownActiveDIY,
+            });
+        let dropdownFlowersClass = classNames({
+            "dropdown-container-off": !this.state.isDropdownActiveFlowers,
+            "dropdown-container-on": this.state.isDropdownActiveFlowers,
+            });
+        let dropdownDIYClass = classNames({
+            "dropdown-container-off": !this.state.isDropdownActiveDIY,
+            "dropdown-container-on": this.state.isDropdownActiveDIY,
+            });
+
         return (
-            <div className="sidenav">
+            <div className={sidebarActive?"sidenav-ToggledOff" : "sidenav"  }>
                 <h1 className = "Sidebar-Name" >Flower Shop</h1>
-                <Link to="/home">Home</Link>
-                <Link to="/shop">Shop</Link>
-                <button className={dropActiveFlowers? "dropdown-btn active" : "dropdown-btn"} onClick = {this.displayDropdownFlowers}>Flowers
+                
+                <Link className = {sidebarActive?"dropdown-itemsToggledOff" : "dropdown-items"  } to="/home">Home</Link>
+                <Link className = {sidebarActive?"dropdown-itemsToggledOff" : "dropdown-items"  } to="/shop">Shop</Link>
+                <button className={flowerBtnClass} onClick = {this.displayDropdownFlowers}>Flowers
                     <i className="fa fa-caret-down"></i>
                 </button>
-                    <div className={dropActiveFlowers? "dropdown-container-on" : "dropdown-container-off"}>
-                        <a href="#">Orchids</a>
-                        <a href="#">Carnations</a>
-                        <a href="#">Daisies</a>
-                        <a href="#">Roses</a>
-                        <a href="#">Sunflowers</a>
-                        <a href="#">Tulips</a>
+                    <div className={dropdownFlowersClass}>
+                        <a className = "dropdown-items" href="#">Orchids</a>
+                        <a className = "dropdown-items" href="#">Carnations</a>
+                        <a className = "dropdown-items" href="#">Daisies</a>
+                        <a className = "dropdown-items" href="#">Roses</a>
+                        <a className = "dropdown-items" href="#">Sunflowers</a>
+                        <a className = "dropdown-items" href="#">Tulips</a>
                     </div>
-                <button className={dropActiveDIY? "dropdown-btn active" : "dropdown-btn"} onClick = {this.displayDropdownDIY}>DIY
+                <button className={DIYBtnClass} onClick = {this.displayDropdownDIY}>DIY
                     <i className="fa fa-caret-down"></i>
                 </button>
-                    <div className={dropActiveDIY? "dropdown-container-on" : "dropdown-container-off"}>
-                        <a href="#">Seeds</a>
-                        <a href="#">Soil</a>
-                        <a href="#">Buckets</a>
+                    <div className={dropdownDIYClass}>
+                        <a className = "dropdown-items" href="#">Seeds</a>
+                        <a className = "dropdown-items" href="#">Soil</a>
+                        <a className = "dropdown-items" href="#">Buckets</a>
                     </div>
-                <Link to = "/about"> About </Link>
-                <a href="#contact">Contact</a>
+                <Link className = "dropdown-items" to = "/about"> About </Link>
+                <a className = "dropdown-items" href="#contact">Contact</a>
+                <a className={sidebarActive?"closebtnToggledOff" : "closebtn"  } onClick = {this.toggleNav}>☰</a>
             </div>
         )
     }

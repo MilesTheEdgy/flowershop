@@ -1,27 +1,49 @@
+.Home {
+    background: url("../../Images/fieldbackground.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.NaviBar {
+    margin-left: 200px;
+    background: none;
+}
+
 .Jumbotron {
+    font-family: 'Pacifico', cursive;
     text-align: center;
     font-size: 4rem;
     padding-bottom: 20px;
+    clear: both;
 }
 
 .Jumbotron-bottom {
+    font-family: 'Abel', sans-serif;
     text-align: center;
     font-size: 2rem;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 .Most-Sold {
+    font-family: 'Pacifico';
     margin-left: 205px;
     font-size: 21px;
 }
 
-.margin-card {
+.cards-container {
     margin-left: 200px;
-    
 }
 
-/* .Home {
-    background-image: url("../../Images/RosesBackground.jpg");
-    background-size: contain;
-    height: 100rem;
+.footer {
+    opacity: 1
+}
+
+
+
+
+
+/* @media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
 } */
