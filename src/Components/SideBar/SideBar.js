@@ -31,50 +31,84 @@ class Sidebar extends React.Component {
     render () {
         let sidebarActive = this.state.isSidebarActive;
         
+        // classNames conditionals
         let flowerBtnClass = classNames({
             "dropdown-btn": !this.state.isDropdownActiveFlowers,
             "dropdown-btn active": this.state.isDropdownActiveFlowers,
+            "dropdown-btn": !this.state.isSidebarActive,
+            "dropdown-btnToggledOff": this.state.isSidebarActive
             });
         let DIYBtnClass = classNames({
             "dropdown-btn": !this.state.isDropdownActiveDIY,
             "dropdown-btn active": this.state.isDropdownActiveDIY,
+            "dropdown-btn": !this.state.isSidebarActive,
+            "dropdown-btnToggledOff": this.state.isSidebarActive
             });
         let dropdownFlowersClass = classNames({
             "dropdown-container-off": !this.state.isDropdownActiveFlowers,
             "dropdown-container-on": this.state.isDropdownActiveFlowers,
+            "dropdown-items": !this.state.isSidebarActive,
+            "dropdown-items-toggled": this.state.isSidebarActive
+
             });
         let dropdownDIYClass = classNames({
             "dropdown-container-off": !this.state.isDropdownActiveDIY,
             "dropdown-container-on": this.state.isDropdownActiveDIY,
+            "dropdown-items": !this.state.isSidebarActive,
+            "dropdown-items-toggled": this.state.isSidebarActive
             });
 
         return (
             <div className={sidebarActive?"sidenav-ToggledOff" : "sidenav"  }>
-                <h1 className = "Sidebar-Name" >Flower Shop</h1>
+                {sidebarActive? <h1 className = "Sidebar-Name" >F S</h1> : <h1 className = "Sidebar-Name" >Flower Shop</h1> }
                 
-                <Link className = {sidebarActive?"dropdown-itemsToggledOff" : "dropdown-items"  } to="/home">Home</Link>
-                <Link className = {sidebarActive?"dropdown-itemsToggledOff" : "dropdown-items"  } to="/shop">Shop</Link>
+                <Link className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } to="/home">Home</Link>
+                <Link className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } to="/shop">Shop</Link>
                 <button className={flowerBtnClass} onClick = {this.displayDropdownFlowers}>Flowers
                     <i className="fa fa-caret-down"></i>
                 </button>
-                    <div className={dropdownFlowersClass}>
-                        <a className = "dropdown-items" href="#">Orchids</a>
-                        <a className = "dropdown-items" href="#">Carnations</a>
-                        <a className = "dropdown-items" href="#">Daisies</a>
-                        <a className = "dropdown-items" href="#">Roses</a>
-                        <a className = "dropdown-items" href="#">Sunflowers</a>
-                        <a className = "dropdown-items" href="#">Tulips</a>
-                    </div>
+
+                {/* sidebar toggler ternary operator for flowers dropdown content*/}
+                {!sidebarActive
+                ?
+                <div className={dropdownFlowersClass}>
+                    <a className = {dropdownFlowersClass} href="#">Orchids</a>
+                    <a className = {dropdownFlowersClass} href="#">Carnations</a>
+                    <a className = {dropdownFlowersClass} href="#">Daisies</a>
+                    <a className = {dropdownFlowersClass} href="#">Roses</a>
+                    <a className = {dropdownFlowersClass} href="#">Sunflowers</a>
+                    <a className = {dropdownFlowersClass} href="#">Tulips</a>
+                </div>
+                :
+                <div className={dropdownFlowersClass}>
+                    <a className = {dropdownFlowersClass} href="#">O</a>
+                    <a className = {dropdownFlowersClass} href="#">C</a>
+                    <a className = {dropdownFlowersClass} href="#">D</a>
+                    <a className = {dropdownFlowersClass} href="#">R</a>
+                    <a className = {dropdownFlowersClass} href="#">S</a>
+                    <a className = {dropdownFlowersClass} href="#">T</a>
+                </div>
+                }
                 <button className={DIYBtnClass} onClick = {this.displayDropdownDIY}>DIY
                     <i className="fa fa-caret-down"></i>
                 </button>
-                    <div className={dropdownDIYClass}>
-                        <a className = "dropdown-items" href="#">Seeds</a>
-                        <a className = "dropdown-items" href="#">Soil</a>
-                        <a className = "dropdown-items" href="#">Buckets</a>
-                    </div>
-                <Link className = "dropdown-items" to = "/about"> About </Link>
-                <a className = "dropdown-items" href="#contact">Contact</a>
+                {/* sidebar toggler ternary operator for DIY dropdown content*/}
+                {!sidebarActive
+                ?
+                <div className={dropdownDIYClass}>
+                <a className = {dropdownDIYClass} href="#">Seeds</a>
+                <a className = {dropdownDIYClass} href="#">Soil</a>
+                <a className = {dropdownDIYClass} href="#">Buckets</a>
+                </div>
+                :
+                <div className={dropdownDIYClass}>
+                    <a className = {dropdownDIYClass} href="#">S</a>
+                    <a className = {dropdownDIYClass} href="#">S</a>
+                    <a className = {dropdownDIYClass} href="#">B</a>
+                </div>
+                }
+                <Link className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } to = "/about"> About </Link>
+                <a className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } href="#contact">Contact</a>
                 <a className={sidebarActive?"closebtnToggledOff" : "closebtn"  } onClick = {this.toggleNav}>☰</a>
             </div>
         )

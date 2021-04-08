@@ -5,7 +5,7 @@ import "./Shop.css";
 const Shop = () => {
     return (
         <div>
-            <div className = "container-fluid">
+            <div className = "container-fluid Containerr">
                 <div className = "search-bar row g-0">
                     <div className = "col-sm">
                         <input class="form-control me-2 search-field" type="search" placeholder="Search" aria-label="Search"/>

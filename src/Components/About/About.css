@@ -1,3 +1,10 @@
+.Page {
+    background: url("../../Images/fieldbackground.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
 
 /* the entire About div */
 .About {
@@ -7,6 +14,7 @@
     left: 210px;
     max-width: 80%;
 }
+
 
 
 /* Headers  */
@@ -38,23 +46,34 @@
 
 /* Man Div */
 
-
-.man-testimony-div {
+/* switch the :hover statements */
+/* .man-testimony-div:hover {
     width: 400px;
     margin-left: 100px;
+    transition: 500ms;
+} */
+
+.man-testimony-div {
+    /* width: 400px; */
+    margin-left: 50px;
+    transition: 500ms;
+    border: solid 3px red;
+    
 }
 
 .man-img {
-    /* this margin is causing increase in div height */
-    margin-top: 80px;
     position: relative;
     border: solid 3px red;
 }
 
 .man-p {
-    width:inherit;
     border: solid 3px red;
     text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    min-width: 200px;
+    float: right;
+    background-color: rgb(42, 216, 42);
 }
 
 .man-title {
@@ -82,6 +101,7 @@
     width:inherit;
     border: solid 3px red;
     text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .Woman-title {
@@ -111,6 +131,7 @@
     width:inherit;
     border: solid 3px red;
     text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .Miles-title {

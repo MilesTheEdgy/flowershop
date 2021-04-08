@@ -15,13 +15,13 @@
   .sidenav-ToggledOff {
     font-family: 'Pacifico', cursive;
     height: 100%;
-    width: 50px;
+    width: 60px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #111;
-    overflow-x: hidden;
+    overflow-x:hidden;
     padding-top: 20px;
     transition: 300ms;
   }
@@ -42,7 +42,7 @@
     outline: none;
   }
 
-  .dropdown-itemsToggledOff .dropdown-btnToggledOff {
+  .dropdown-items-toggled, .dropdown-btnToggledOff {
     padding: 10px 8px 6px 2px;
     text-decoration: none;
     font-size: 15px;
@@ -94,10 +94,24 @@
 
 .closebtn {
   position: absolute;
-  top: 0;
+  text-decoration: none;
+  top: 94%;
   left: 150px;
   font-size: 30px !important;
   cursor: pointer;
+  transition: 300ms;
+}
+
+.closebtnToggledOff {
+  text-decoration: none;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 94%;
+  left: 15px;
+  transition: 300ms;
+
+
 }
 
 
