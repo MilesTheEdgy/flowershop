@@ -1,0 +1,168 @@
+.Page {
+    background: url("../../Images/fieldbackground.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+
+/* the entire About div */
+.About {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 210px;
+    max-width: 80%;
+}
+
+
+
+/* Headers  */
+.Headerr-1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.Headerr-2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Paragraphs */
+.paragraph-1 {
+    margin-top: 80px;
+    font-size: 1.5em;
+}
+
+.paragraph-2 {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+
+
+/* Man Div */
+
+/* switch the :hover statements */
+/* .man-testimony-div:hover {
+    width: 400px;
+    margin-left: 100px;
+    transition: 500ms;
+} */
+
+.man-testimony-div {
+    display: flex;
+    height: 400px;
+    margin-left: 50px;
+    transition: 500ms;
+    border: solid 3px red;
+    
+}
+
+.man-img {
+    position: relative;
+    border: solid 3px red;
+}
+
+.man-p {
+    border: solid 3px red;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    min-width: 200px;
+    float: right;
+    background-color: rgb(42, 216, 42);
+}
+
+.man-title {
+    text-align: center;
+    font-size:1.5em;
+}
+
+
+/* Woman Div */
+
+
+.Woman-testimony-div {
+    width: 400px;
+    margin-left: auto;
+}
+
+.Woman-img {
+    /* this margin is causing increase in div height */
+    margin-top: 80px;
+    position: relative;
+    border: solid 3px red;
+}
+
+.Woman-p {
+    width:inherit;
+    border: solid 3px red;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Woman-title {
+    text-align: center;
+    font-size:1.5em;
+}
+
+
+
+
+/* Miles Div */
+
+
+.Miles-testimony-div {
+    width: 400px;
+    margin-left: 100px;
+}
+
+.Miles-img {
+    /* this margin is causing increase in div height */
+    margin-top: 80px;
+    position: relative;
+    border: solid 3px red;
+}
+
+.Miles-p {
+    width:inherit;
+    border: solid 3px red;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Miles-title {
+    text-align: center;
+    font-size:1.5em;
+}
+
+
+
+
+
+
+
+
+
+
+/* @media (max-width: 1320x) {
+    .container{
+        max-width: 300px;
+    }
+} */
+
+/* @media (max-width: 1525px) {
+    .container{
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 1190px) {
+    .container{
+        max-width: 300px;
+    }
+} */

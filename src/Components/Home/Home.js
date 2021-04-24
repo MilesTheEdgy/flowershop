@@ -5,14 +5,15 @@ import MixedFlowersMini from "../Card//Flowers/MixedFlowersMini/MixedFlowersMini
 import React from "react";
 
 import "./Home.css";
+import "../Other/hover.css"
 
-const Home = () => {
+const Home = (props) => {
     return (
             <div className = "Home" >
 
 
               {/* Navbar */}
-              <nav className="navbar bg-transparent NaviBar">
+              <nav className={props.isSidebarOpen ? "navbar bg-transparent NaviBar-Closed" : "navbar bg-transparent NaviBar"}>
                 <div className="container-fluid">
                   <div className="navbar-brand">Welcome <strong>User</strong> </div>
 
@@ -30,24 +31,29 @@ const Home = () => {
 
               {/* Jumbotron and card elements */}
               <div>
-                  <h1 className = "Jumbotron" >Welcome to the Flower Shop</h1>
-                  <h2 className = "Jumbotron-bottom" >The best place to buy the freshest flowers!</h2>
-                  <p className = "Most-Sold" >Our most sold items:</p>
-                  <div className = "container cards-container">
-                      <div className = "row" >
-                          <div className = "col-sm cardd" >
+                  <h1 className = {props.isSidebarOpen ? "Jumbotron-Closed" : "Jumbotron"} >Welcome to the Flower Shop <div>
+                    <h2 className = "Jumbotron-bottom" >The best place to buy the freshest flowers!</h2>              
+                    </div> </h1>
+                  <p className = {props.isSidebarOpen ? "Most-Sold-closed" : "Most-Sold"}>Our most sold items:</p>
+                  <div className = {props.isSidebarOpen ? "cards-container-closed" : "cards-container"}>
+                          <div className = "cardd hvr-grow" >
                             <Roses/>
                           </div>
-                          <div className = "col-sm cardd" >
+                          <div className = "cardd hvr-grow" >
                             <Orchids/>
                           </div>
-                          <div className = "col-sm cardd" >
+                          <div className = "cardd hvr-grow" >
                             <MixedFlowers/>
                           </div>
-                          <div className = "col-sm cardd" >
+                          <div className = "cardd hvr-grow" >
                             <MixedFlowersMini/>
                           </div>
-                      </div>
+                          <div className = {props.isSidebarOpen ? "cardd-phantom-closed" : "cardd-phantom"} >
+                            <MixedFlowersMini/>
+                          </div>
+                          <div className = {props.isSidebarOpen ? "cardd-phantom-closed" : "cardd-phantom"} >
+                            <MixedFlowersMini/>
+                          </div>
                   </div>
               </div>
 
@@ -59,5 +65,7 @@ const Home = () => {
             </div>
     )
 }
+
+ 
 
 export default Home;

@@ -1,12 +1,33 @@
+
+
+/* background image and its properties */
 .Home {
     background: url("../../Images/fieldbackground.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
 
-.NaviBar {
+
+/* if sidebar is open: */
+
+.NaviBar, .cards-container {
     margin-left: 200px;
-    background: none;
+    transition: 300ms;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.cardd {
+    align-self: auto;
+
+}
+
+.cardd-phantom {
+    display: none;
 }
 
 .Jumbotron {
@@ -19,8 +40,9 @@
 
 .Jumbotron-bottom {
     font-family: 'Abel', sans-serif;
-    text-align: center;
+    text-align: inherit;
     font-size: 2rem;
+    padding-top: 30px;
     padding-bottom: 50px;
 }
 
@@ -28,11 +50,45 @@
     font-family: 'Pacifico';
     margin-left: 205px;
     font-size: 21px;
+    transition: 300ms;
 }
 
-.cards-container {
-    margin-left: 200px;
+
+
+/* if sidebar is closed:  */
+
+.NaviBar-Closed, .cards-container-closed {
+    margin-left: 60px;
+    transition: 300ms;
 }
+
+.Jumbotron-Closed {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-size: 4rem;
+    padding-bottom: 20px;
+    clear: both;
+}
+
+.cardd-phantom-closed {
+    display: none;
+}
+
+.cards-container-closed {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.Most-Sold-closed {
+    font-family: 'Pacifico';
+    font-size: 21px;
+    margin-left: 70px;
+    transition: 300ms;
+}
+
+
+/* other: */
 
 .footer {
     opacity: 1
@@ -40,10 +96,45 @@
 
 
 
+/*cards media queries */
 
-
-/* @media (min-width: 1200px) {
-    .container{
-        max-width: 970px;
+@media only screen and (max-width: 1408px) {
+    .cardd-phantom{
+        display: inline;
+        visibility: hidden;
     }
-} */
+}
+
+@media only screen and (max-width: 1111px) {
+    .cardd-phantom{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1268px) {
+    .cardd-phantom-closed{
+        display: inline;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    .cardd-phantom-closed{
+        display: none;
+    }
+}
+
+
+/*Jumbotron media queries */
+
+@media only screen and (max-width: 1400px) {
+    .Jumbotron {
+        padding-left: 200px;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .Jumbotron-Closed {
+        padding-left: 60px;
+    }
+}

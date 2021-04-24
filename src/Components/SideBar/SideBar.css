@@ -1,5 +1,7 @@
 .sidenav {
+    background-image: url(../../Images/SidebarBackground.jpg);
     font-family: 'Pacifico', cursive;
+    font-weight: 600;
     height: 100%;
     width: 200px;
     position: fixed;
@@ -32,7 +34,7 @@
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 20px;
-    color: #818181;
+    color: #000000;
     display: block;
     border: none;
     background: none;
@@ -93,9 +95,9 @@
 }
 
 .closebtn {
-  position: absolute;
+  position: fixed;
   text-decoration: none;
-  top: 94%;
+  top: 92%;
   left: 150px;
   font-size: 30px !important;
   cursor: pointer;
@@ -107,7 +109,7 @@
   font-size: 30px;
   cursor: pointer;
   position: absolute;
-  top: 94%;
+  top: 92%;
   left: 15px;
   transition: 300ms;
 

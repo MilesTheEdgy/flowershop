@@ -1,15 +1,12 @@
 
-import SideBar from "./Components/SideBar/SideBar.js";
-import Home from "./Components/Home/Home.js";
+import SidebarWrapper from "./Components/SideBar/SidebarWrapper";
 import Main from "./Components/Main/Main.js";
 
 function App() {
   return (
     <div>
-        <SideBar/>
+        <SidebarWrapper/>
         <Main/>
-
-
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import React from "react";
 import "./SideBar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import classNames from "classnames";
-
 
 class Sidebar extends React.Component {
 
@@ -23,6 +22,7 @@ class Sidebar extends React.Component {
 }
     toggleNav = () => {
         this.setState({isSidebarActive: !this.state.isSidebarActive})
+        this.props.sidebarChange()
         
     }
 
@@ -61,12 +61,27 @@ class Sidebar extends React.Component {
         return (
             <div className={sidebarActive?"sidenav-ToggledOff" : "sidenav"  }>
                 {sidebarActive? <h1 className = "Sidebar-Name" >F S</h1> : <h1 className = "Sidebar-Name" >Flower Shop</h1> }
-                
-                <Link className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } to="/home">Home</Link>
-                <Link className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } to="/shop">Shop</Link>
-                <button className={flowerBtnClass} onClick = {this.displayDropdownFlowers}>Flowers
-                    <i className="fa fa-caret-down"></i>
+                {sidebarActive ?
+                    <NavLink className = "dropdown-items-toggled" to="/home"> <span className = "fas fa-home"></span> </NavLink>
+                    :
+                    <NavLink className = "dropdown-items" to="/home">Home</NavLink>
+                }
+                {sidebarActive ?
+                    <NavLink className ="dropdown-items-toggled" to="/shop"> <span className = "fas fa-store"></span> </NavLink>
+                    :
+                    <NavLink className = "dropdown-items" to="/shop">Shop</NavLink>
+                }
+                {sidebarActive ? 
+                <button className={flowerBtnClass} onClick = {this.displayDropdownFlowers}>
+                    <span className = "fas fa-tags">
+                        <i className="fa fa-caret-down"></i>        
+                    </span>
                 </button>
+                :
+                <button className={flowerBtnClass} onClick = {this.displayDropdownFlowers}>Flowers
+                <i className="fa fa-caret-down"></i>
+                </button>
+                }
 
                 {/* sidebar toggler ternary operator for flowers dropdown content*/}
                 {!sidebarActive
@@ -89,12 +104,20 @@ class Sidebar extends React.Component {
                     <a className = {dropdownFlowersClass} href="#">T</a>
                 </div>
                 }
+                { !sidebarActive ?
                 <button className={DIYBtnClass} onClick = {this.displayDropdownDIY}>DIY
                     <i className="fa fa-caret-down"></i>
                 </button>
+                :
+                <button className={DIYBtnClass} onClick = {this.displayDropdownDIY}>
+                    <span className = "fas fa-seedling">
+                        <i className="fa fa-caret-down"></i>
+                    </span>
+                </button>
+                }
                 {/* sidebar toggler ternary operator for DIY dropdown content*/}
                 {!sidebarActive
-                ?
+                ? 
                 <div className={dropdownDIYClass}>
                 <a className = {dropdownDIYClass} href="#">Seeds</a>
                 <a className = {dropdownDIYClass} href="#">Soil</a>
@@ -107,12 +130,24 @@ class Sidebar extends React.Component {
                     <a className = {dropdownDIYClass} href="#">B</a>
                 </div>
                 }
-                <Link className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } to = "/about"> About </Link>
-                <a className = {sidebarActive?"dropdown-items-toggled" : "dropdown-items"  } href="#contact">Contact</a>
-                <a className={sidebarActive?"closebtnToggledOff" : "closebtn"  } onClick = {this.toggleNav}>☰</a>
+                {sidebarActive ?
+                    <NavLink className = "dropdown-items-toggled" to = "/about"> <span className = "fas fa-address-card"></span> </NavLink>
+                    :
+                    <NavLink className = "dropdown-items" to = "/about"> About </NavLink>                   
+                }
+                {sidebarActive ?
+                    <NavLink className = "dropdown-items-toggled" to = "/contact" > <span className = "far fa-address-card"></span> </NavLink>
+                    :
+                    <NavLink className = "dropdown-items" to = "/contact">Contact</NavLink>
+                }
+                <a className={sidebarActive && this.props.isSidebarOpen?"closebtnToggledOff" : "closebtn"  } onClick = {this.toggleNav}>☰</a>
             </div>
         )
+
     }
 };
+
+
+
 
 export default Sidebar;

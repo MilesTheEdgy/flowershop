@@ -1,17 +1,19 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from '../Home/Home.js'
-import About from '../About/About.js'
-import Shop from "../Shop/Shop.js"
+import HomeWrapper from '../Home/HomeWrapper.js'
+import AboutTest from '../About/AboutTest.js'
+import ShopWrapper from "../Shop/ShopWrapper"
 
-const Main = () => (
-  <main>
+const Main = () => {
+return ( 
+   <main>
     <Switch>
-      <Route path='/home'> <Home/> </Route>
-      <Route path='/about'> <About/> </Route>
-      <Route path ="/shop"> <Shop/> </Route>
+      <Route path='/home'> <HomeWrapper/> </Route>
+      <Route path='/about'> <AboutTest/> </Route>
+      <Route path ="/shop"> <ShopWrapper/> </Route>
     </Switch>
   </main>
-)
+  )
+}
 
 export default Main
