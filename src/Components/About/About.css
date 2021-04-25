@@ -44,124 +44,63 @@
 
 
 
-/* Man Div */
 
-/* switch the :hover statements */
-/* .man-testimony-div:hover {
-    width: 400px;
-    margin-left: 100px;
-    transition: 500ms;
+.testimony-container {
+    border: solid 3px red;
+    display: flex;
+    flex-wrap: wrap;
+    height: 700px;
+    transition: 300ms;
+}
+
+/* .man-text-container, .woman-text-container , .miles-text-container {
+    display: none;
 } */
 
-.man-testimony-div {
-    /* width: 400px; */
-    margin-left: 50px;
-    transition: 500ms;
-    border: solid 3px red;
-    
+.woman-text-container, .miles-text-container, .man-text-container {
+    display: none;
+    transition: 300ms;
 }
 
-.man-img {
-    position: relative;
-    border: solid 3px red;
-}
 
-.man-p {
-    border: solid 3px red;
+.man-img:hover ~ .man-text-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.2rem;
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 2.5rem;
-    min-width: 200px;
-    float: right;
-    background-color: rgb(42, 216, 42);
+    font-family: 'Lora', serif;
+    transition: 300ms;
 }
 
 .man-title {
+    font-family: 'PT Serif', serif;
+    transition: 300ms;
+}
+
+.woman-img:hover ~ .woman-text-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.2rem;
     text-align: center;
-    font-size:1.5em;
+    font-family: 'Lora', serif;
+    transition: 300ms;
 }
 
-
-/* Woman Div */
-
-
-.Woman-testimony-div {
-    width: 400px;
-    margin-left: auto;
+.woman-title {
+    font-family: 'PT Serif', serif;
+    transition: 300ms;
 }
 
-.Woman-img {
-    /* this margin is causing increase in div height */
-    margin-top: 80px;
-    position: relative;
-    border: solid 3px red;
-}
-
-.Woman-p {
-    width:inherit;
-    border: solid 3px red;
+.miles-img:hover ~ .miles-text-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.2rem;
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Lora', serif;
+    transition: 300ms;
 }
 
-.Woman-title {
-    text-align: center;
-    font-size:1.5em;
+.miles-title {
+    font-family: 'PT Serif', serif;
+    transition: 300ms;
 }
-
-
-
-
-/* Miles Div */
-
-
-.Miles-testimony-div {
-    width: 400px;
-    margin-left: 100px;
-}
-
-.Miles-img {
-    /* this margin is causing increase in div height */
-    margin-top: 80px;
-    position: relative;
-    border: solid 3px red;
-}
-
-.Miles-p {
-    width:inherit;
-    border: solid 3px red;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.Miles-title {
-    text-align: center;
-    font-size:1.5em;
-}
-
-
-
-
-
-
-
-
-
-
-/* @media (max-width: 1320x) {
-    .container{
-        max-width: 300px;
-    }
-} */
-
-/* @media (max-width: 1525px) {
-    .container{
-        max-width: 700px;
-    }
-}
-
-@media (max-width: 1190px) {
-    .container{
-        max-width: 300px;
-    }
-} */
