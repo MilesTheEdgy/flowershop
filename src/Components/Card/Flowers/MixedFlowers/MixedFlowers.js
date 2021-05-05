@@ -10,7 +10,6 @@ const MixedFlowers = () => {
                     <h5 className="card-title">MixedFlowers</h5>
                     <p className="card-text">A ready to deliver Mixed Flowers Package for that special someone</p>
                     <p className="card-text"> <b>$25.00</b></p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
     )

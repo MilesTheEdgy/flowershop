@@ -37,6 +37,7 @@ const Home = (props) => {
                           <div className = {props.isSidebarOpen ? "cardd-phantom-closed" : "cardd-phantom"} >
                             <MixedFlowersMini/>
                           </div>
+                          
                   </div>
               </div>
 

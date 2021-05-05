@@ -124,5 +124,23 @@ export const productData = [
         price: 56.99,
         imageurl: require("../../Images/Flowers/Tulip.jpeg").default
 
-    }
+    },
+    {
+        id: 15,
+        name: "Mixed Flowers",
+        title: "Mixed Flowers",
+        text: "Beautiful hand picked Mixed Flowers fresh out of our gardins",
+        price: 29.99,
+        imageurl: require("../../Images/Flowers/MixedFlowers.jpg").default
+
+    },
+    {
+        id: 13,
+        name: "Mixed Flowers Mini",
+        title: "Mixed Flowers Mini",
+        text: "Beautiful hand picked MixedFlowersMini fresh out of our gardins",
+        price: 29.99,
+        imageurl: require("../../Images/Flowers/MixedFlowersMini.jpg").default
+
+    },
 ]

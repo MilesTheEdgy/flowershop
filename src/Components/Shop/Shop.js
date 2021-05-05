@@ -18,6 +18,15 @@ const Shop = (props) => {
                 <div className = {props.isSidebarOpen ? "ShopCardd-phantom-closed" : "ShopCardd-phantom"}>
                     <TemplateCard/>
                 </div>
+                <div className = {props.isSidebarOpen ? "ShopCardd-phantom-closed" : "ShopCardd-phantom"}>
+                    <TemplateCard/>
+                </div>
+                <div className = {props.isSidebarOpen ? "ShopCardd-phantom-closed" : "ShopCardd-phantom"}>
+                    <TemplateCard/>
+                </div>
+                <div className = {props.isSidebarOpen ? "ShopCardd-phantom-closed" : "ShopCardd-phantom"}>
+                    <TemplateCard/>
+                </div>
             </div>
         </div>
     )
