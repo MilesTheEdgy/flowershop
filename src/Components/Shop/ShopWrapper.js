@@ -4,7 +4,8 @@ import Shop from "./Shop.js"
 
 const mapStateToProps = (state) => {
     return {
-        isSidebarOpen: state.isSidebarOpen
+        isSidebarOpen: state.isSidebarOpen,
+        isModalOpen: state.isModalOpen   
     }
 }
 
@@ -12,8 +13,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
-        
+        modalOpened : () => {
+            dispatch({type: "OPEN_MODAL"})
+        },
+        modalClosed : () => {
+            dispatch({type: "CLOSE_MODAL"})
+        }
     }
 }   
 

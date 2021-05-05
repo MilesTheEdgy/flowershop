@@ -1,0 +1,141 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .modal.enter-done {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  
+  .modal.exit {
+    opacity: 0;
+  }
+  
+  .modal-content {
+    width: 400px;
+    height: 500px;
+    background-image: url(../../Images/flowersSidebarBackground.png);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-200px);
+  } 
+
+  .modal.enter-done .modal-content {
+    transform: translateY(0);
+  }
+  
+  .modal.exit .modal-content {
+    transform: translateY(-200px);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 0px 0px;
+    /* border: 0px solid rgba(0, 0, 0, 0.2) ; */
+  }
+
+  .modal-title {
+    padding-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+
+    background-image: linear-gradient(45deg, #a9dba4, #e25734);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+    
+    font-size: 45px;
+    font-weight: 40px;
+  }
+  
+  .modal-body {
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-input-field {
+      width: 80%;
+  }
+
+  .modal-username-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-username {
+      padding-top: 10px;
+      font-size: 20px;
+      font-family: 'Titillium Web', sans-serif;
+
+      background-image: linear-gradient(45deg, #a9dba4, #e25734);
+      background-size: 100%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      background-clip: text;
+  }
+
+  .modal-password-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-password {
+    padding-top: 10px;
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
+
+    background-image: linear-gradient(45deg, #a9dba4, #e25734);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+
+}
+  .modal-submit {
+      display: flex;
+      justify-content: center;
+      padding-top: 30px;
+  }
+
+  .modal-submit-button {
+    background-color: rgb(24, 102, 116);
+    background-image: url(../../Images/Submit-button-photo.png);
+    background-size: cover;
+    padding: 15px 30px;
+    border-radius: 7px;
+
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: white;
+    text-shadow: violet;
+  }
+
+  .modal-footer {
+    padding: 10px;
+    /* border: 0px solid rgba(0, 0, 0, 0.2); */
+
+  }

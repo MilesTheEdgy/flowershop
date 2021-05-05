@@ -1,0 +1,10 @@
+.NaviBar {
+    margin-left: 200px;
+    transition: 300ms;
+}
+
+
+.NaviBar-Closed {
+    margin-left: 60px;
+    transition: 300ms;
+}

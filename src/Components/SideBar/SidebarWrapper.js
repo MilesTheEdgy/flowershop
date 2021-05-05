@@ -4,7 +4,8 @@ import Sidebar from "./SideBar.js"
 
 const mapStateToProps = (state) => {
     return {
-        isSidebarOpen: state.isSidebarOpen
+        isSidebarOpen: state.isSidebarOpen,
+        isModalOpen: state.isModalOpen
     }
 }
 

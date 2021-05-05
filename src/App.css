@@ -1,0 +1,7 @@
+
+/* background image and its properties */
+.app {
+    background: url("./Images/fieldbackground.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}

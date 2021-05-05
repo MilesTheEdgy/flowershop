@@ -1,14 +1,8 @@
 
 
-/* background image and its properties */
-.Home {
-    background: url("../../Images/fieldbackground.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-}
 
 
-/* if sidebar is open: */
+/* if sidear is open: */
 
 .NaviBar, .cards-container {
     margin-left: 200px;

@@ -1,19 +1,5 @@
-.Shop {
-    background: url("../../Images/fieldbackground.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-}
 
-.search-bar {
-    position: absolute;
-    left: 75%;
-    padding-top: 15px;
-    display: flex;
-}
 
-.search-field {
-    width: 300px;
-}
 
 .ShopCards-SidebarOpen {
     padding-top: 100px;

@@ -3,23 +3,26 @@ import "./About.css";
 import Miles from "../../Images/Miles.jpg"
 import Man from "../../Images/Man.jpg"
 import Woman from "../../Images/Woman.jpg"
+import "../Other/hover.css"
 
-const About = () => {
+
+const About = (props) => {
     return (
-        <div className = "Page">
-            <div className = "About">
+        <div id = "About-page">
+            <div className = {props.isSidebarOpen ? "shrinked-about" : "full-about"}>
                 <h1 className = "Headerr-1">We at flower shop</h1>
                 <h1 className = "Headerr-2">dedicate ourselves to providing you the best flowers for all occations</h1>
 
                 <p className = "paragraph-1"> we use some of the best tools to fertilize our flowers so it can meet your every need</p>
                 <p className = "paragraph-2" >here is some testimoney from our clients</p>
+                <p id = "hover-over-me">Hover on the picture!  </p>
 
 
                 <div className = " testimony-container">
 
-                    <img src = {Man} width = "400" height = "400" className = "man-img" />
-                    <img src = {Woman} width = "400" height = "400" className = "woman-img" />
-                    <img src = {Miles} width = "400" height = "400" className = "miles-img" />
+                    <img src = {Man} width = "350" height = "350" className = "man-img hvr-grow" />
+                    <img src = {Woman} width = "350" height = "350" className = "woman-img hvr-grow" />
+                    <img src = {Miles} width = "350" height = "350" className = "miles-img hvr-grow" />
 
                     <div className = "man-text-container">
                         <p className = "man-p"> ''I was in dire need of a quick way to get my flowers

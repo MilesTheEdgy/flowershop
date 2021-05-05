@@ -1,6 +1,6 @@
 import React from "react";
 import "./SideBar.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 
 class Sidebar extends React.Component {

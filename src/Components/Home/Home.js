@@ -12,23 +12,6 @@ const Home = (props) => {
             <div className = "Home" >
 
 
-              {/* Navbar */}
-              <nav className={props.isSidebarOpen ? "navbar bg-transparent NaviBar-Closed" : "navbar bg-transparent NaviBar"}>
-                <div className="container-fluid">
-                  <div className="navbar-brand">Welcome <strong>User</strong> </div>
-
-                  <div className = "d-flex justify-content-end">
-                    <a className = "nav-link">Sign In</a>
-                    <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                      <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                  </div>
-
-                </div>
-              </nav>
-
-
               {/* Jumbotron and card elements */}
               <div>
                   <h1 className = {props.isSidebarOpen ? "Jumbotron-Closed" : "Jumbotron"} >Welcome to the Flower Shop <div>

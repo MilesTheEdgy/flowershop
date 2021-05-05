@@ -1,20 +1,20 @@
-.Page {
-    background: url("../../Images/fieldbackground.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 
 
 /* the entire About div */
-.About {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    left: 210px;
-    max-width: 80%;
+.full-about {
+  display: flex;
+  flex-direction: column;
+  padding-left: 210px;
+  transition: padding 300ms;
+
 }
 
+.shrinked-about {
+  display: flex;
+  flex-direction: column;
+  padding-left: 70px;
+  transition: padding 300ms;
+}
 
 
 /* Headers  */
@@ -42,65 +42,51 @@
     font-size: 1.5em;
 }
 
-
-
+#hover-over-me {
+  font-size: 1.8em;
+  text-align: center;
+}
 
 .testimony-container {
-    border: solid 3px red;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     height: 700px;
     transition: 300ms;
-}
-
-/* .man-text-container, .woman-text-container , .miles-text-container {
-    display: none;
-} */
-
-.woman-text-container, .miles-text-container, .man-text-container {
-    display: none;
-    transition: 300ms;
-}
-
-
-.man-img:hover ~ .man-text-container {
-    display: flex;
-    flex-direction: column;
+  }
+  
+   
+  .man-text-container,
+  .woman-text-container,
+  .miles-text-container {
+    padding-top: 50px;
+    opacity: 0;
+    transition: all 300ms;
     font-size: 2.2rem;
     text-align: center;
     font-family: 'Lora', serif;
-    transition: 300ms;
-}
+  }
 
-.man-title {
+  .woman-text-container {
+    position: relative;
+    bottom: 270px;
+  }
+ 
+  .miles-text-container {
+    position: relative;
+    bottom: 500px;
+  }
+
+
+  
+  .man-img:hover ~ .man-text-container,
+  .woman-img:hover ~ .woman-text-container,
+  .miles-img:hover ~ .miles-text-container {
+    opacity: 1;
+  }
+  
+  .man-title,
+  .woman-title,
+  .miles-title {
     font-family: 'PT Serif', serif;
-    transition: 300ms;
-}
-
-.woman-img:hover ~ .woman-text-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 2.2rem;
-    text-align: center;
-    font-family: 'Lora', serif;
-    transition: 300ms;
-}
-
-.woman-title {
-    font-family: 'PT Serif', serif;
-    transition: 300ms;
-}
-
-.miles-img:hover ~ .miles-text-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 2.2rem;
-    text-align: center;
-    font-family: 'Lora', serif;
-    transition: 300ms;
-}
-
-.miles-title {
-    font-family: 'PT Serif', serif;
-    transition: 300ms;
-}
+  }

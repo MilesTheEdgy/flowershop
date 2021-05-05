@@ -4,7 +4,8 @@ import Home from "./Home.js"
 
 const mapStateToProps = (state) => {
     return {
-        isSidebarOpen: state.isSidebarOpen
+        isSidebarOpen: state.isSidebarOpen,
+        didModalGetClicked: state.didModalGetClicked
     }
 }
 
