@@ -1,11 +1,11 @@
 import React from "react";
-import "./Dahlia.css"
-import DahliaImage from "../../../../Images/Flowers/Dahlia.jpg";
+import "./TemplateCard.css";
+import "../../Other/hover.css";
 
-const Dahlia = (props) => {
+const TemplateCard = (props) => {
     return (
-            <div className="card cardStyle border border-success rounded" style={{width: "18rem"}}>
-                <img src= {DahliaImage} className="card-img-top" alt="..." width = "100" height = "100" />
+            <div className="card cardStyle border border-success rounded hvr-grow" style={{width: "18rem"}}>
+                <img src= {props.imageurl} className="card-img-top" alt="..." width = "100" height = "100" />
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text"> {props.text} </p>
@@ -16,4 +16,4 @@ const Dahlia = (props) => {
     )
 }
 
-export default Dahlia;
+export default TemplateCard;
