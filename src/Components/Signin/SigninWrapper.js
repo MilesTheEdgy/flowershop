@@ -4,7 +4,8 @@ import Signin from "./Signin.js"
 
 const mapStateToProps = (state) => {
     return {
-        isModalOpen: state.isModalOpen
+        isModalOpen: state.isModalOpen,
+        isSignupModalOpened: state.isSignupModalOpened
     }
 }
 

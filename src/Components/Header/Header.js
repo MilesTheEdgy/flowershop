@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css"
 
 class Header extends React.Component {
 
@@ -16,9 +17,6 @@ class Header extends React.Component {
                                 placeholder="Search"
                                 onChange = {this.props.filterByValue}
                             />
-                            <button className="btn btn-outline-success"
-                                    type="submit" 
-                                    onClick = {this.props.triggerUserValue}>Search</button>
                         </form>
                     </div>
                 </div>  

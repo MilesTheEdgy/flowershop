@@ -4,7 +4,6 @@ export const initialState = {
     isSignupModalOpened: false,
     isSidebarOpen: false,
     isModalOpen : false,
-    searchString: "",
     userData: [],
     appliedFilters: [],
     productData: [
@@ -155,16 +154,18 @@ export const initialState = {
     ]
   };
   
-  const actions = {
-    type: "TOGGLE_SIDEBAR",
-    type: "OPEN_MODAL",
-    type: "CLOSE_MODAL"
-  };
 
   const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 
    export const userStringFnc = (payload) => ({
     type: FILTER_BY_VALUE,
+    payload
+ })
+
+ const SIGN_UP_USER = "SIGN_UP_USER"
+
+ export const signUpUser = (payload) => ({
+    type: SIGN_UP_USER,
     payload
  })
 
@@ -188,6 +189,7 @@ export const initialState = {
 
         case "CLOSE_MODAL":
               return {...state,
+              isSignupModalOpened: false,
               isModalOpen: false}
 
         case FILTER_BY_VALUE:
@@ -215,8 +217,7 @@ export const initialState = {
                      productData: newState.filteredProducts }; 
 
       case "TRIGGER_USER_VALUE":
-              alert(state.searchString)
-
+            return state
           default:
             return state;
       }

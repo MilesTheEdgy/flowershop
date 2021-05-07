@@ -6,7 +6,8 @@ const mapStateToProps = (state) => {
     return {
         isSidebarOpen: state.isSidebarOpen,
         isModalOpen: state.isModalOpen,
-        searchString: state.searchString
+        searchString: state.searchString,
+        signUpModalOpened: state.signUpModalOpened
     }
 }
 
@@ -24,6 +25,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         triggerUserValue: () => {
             dispatch({type: "TRIGGER_USER_VALUE"})
+        },
+        signUpModalOpened: () => {
+            dispatch({type: "OPEN_SIGNUP_MODAL"})
         }
     }
 }

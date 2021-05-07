@@ -44,7 +44,7 @@ const SignUpModal = (props) => {
               </div>
           </div>
           <div className="modal-footer">
-            <button className="button" onClick={props.closeModal} >
+            <button className="button" onClick={props.modalClosed} >
               Close
             </button>
           </div>

@@ -3,6 +3,7 @@ import SidebarWrapper from "./Components/SideBar/SidebarWrapper";
 import Main from "./Components/Main/Main.js";
 import HeaderWrapper from "./Components/Header/HeaderWrapper";
 import SigninWrapper from "./Components/Signin/SigninWrapper";
+import SignUpWrapper from "./Components/SignUp/SignUpWrapper"
 import "./App.css"
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
           <HeaderWrapper/>
           <SidebarWrapper/>
           <SigninWrapper/>
+          <SignUpWrapper/>
           <Main/>
       </div>
     );
