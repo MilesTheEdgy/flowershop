@@ -5,7 +5,8 @@ import Shop from "./Shop.js"
 const mapStateToProps = (state) => {
     return {
         isSidebarOpen: state.isSidebarOpen,
-        isModalOpen: state.isModalOpen   
+        isModalOpen: state.isModalOpen,
+        productData: state.productData
     }
 }
 

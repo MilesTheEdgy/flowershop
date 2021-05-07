@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
-import Signin from "./Signin.js"
+import SignUpModal from "./SignUp.js"
 
 
 const mapStateToProps = (state) => {
     return {
-        isModalOpen: state.isModalOpen
+        isModalOpen: state.isModalOpen,
+        isSignupModalOpened: state.isSignupModalOpened
     }
 }
 
@@ -17,9 +18,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         modalClosed : () => {
             dispatch({type: "CLOSE_MODAL"})
-        },
-        signUpModalOpened: () => {
-           dispatch({type: "OPEN_SIGNUP_MODAL"})
         }
     }
 }   
