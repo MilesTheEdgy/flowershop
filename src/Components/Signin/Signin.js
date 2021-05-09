@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./Signin.css";
@@ -17,6 +17,9 @@ const Modal = (props) => {
     };
   }, []);
 
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+
   return ReactDOM.createPortal(
     <CSSTransition
       in={props.isModalOpen}
@@ -32,15 +35,15 @@ const Modal = (props) => {
               <div className = "modal-input-field">
                 <div className = "modal-username-field">
                     <p className = "p-username">Username</p>
-                    <input tag = "username" placeholder = "eg: muhammet-aldulaimi"/> 
+                    <input onChange = {(e) => setUsernameInput(e.target.value)} tag = "username" placeholder = "eg: muhammet-aldulaimi"/> 
                 </div>
                 <div className = "modal-password-field">
                     <p className = "p-password">Password</p>
-                    <input tag = "password" placeholder = "eg: someStrongPassword123"/> 
+                    <input onChange = {(e) => setPasswordInput(e.target.value)} type = "password" tag = "password" placeholder = "eg: someStrongPassword123"/> 
                 </div>
               </div>
               <div className = "modal-submit"> 
-                <button className = "modal-submit-button">Submit</button>
+                <button onClick = {() => props.logInHandler(usernameInput, passwordInput)} className = "modal-submit-button">Submit</button>
               </div>
           </div>
           <div className="modal-footer">

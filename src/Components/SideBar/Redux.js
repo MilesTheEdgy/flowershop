@@ -6,14 +6,18 @@ export const initialState = {
     isSignupModalOpened: false,
     isSidebarOpen: false,
     isModalOpen : false,
-    searchString: "",
+    userDataInput: {
+        userNameInput: "",
+        userPasswordInput: ""
+    },
     userData: [
         {
-            user: "",
-            pass: ""
+            name: "muhammed",
+            pass: "aldulaimi"
         }
     ],
-
+    signupUserIncompleteInput: false,
+    signinUserFalseInput: false,
     appliedFilters: [],
     productData: [
         {   
@@ -164,13 +168,28 @@ export const initialState = {
   };
 
   
-  const FILTER_BY_VALUE = "FILTER_BY_VALUE"
+ const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 
    export const userStringFnc = (payload) => {
     return {type: FILTER_BY_VALUE,
             payload}
  }
+    
+const SEND_USERNAME_DATA = "SEND_USERNAME_DATA"
 
+    export const sendUserNameData = (payload) => {
+     return { type: SEND_USERNAME_DATA,
+             payload
+     }
+ }
+
+ const SEND_PASSWORD_DATA = "SEND_PASSWORD_DATA"
+ export const sendPasswordData = (payload) => {
+     return {
+         type: SEND_PASSWORD_DATA,
+         payload
+     }
+ } 
  const SIGN_UP_USER = "SIGN_UP_USER"
 
  export const signUpUser = (payload) => {
@@ -180,6 +199,14 @@ export const initialState = {
      }
  }
 
+ const LOG_IN_USER = "LOG_IN_USER"
+
+export const logInUser = (payload) => {
+    return {
+        type: LOG_IN_USER,
+        payload
+    }
+}
 
   
   const Reducer = (state = initialState, action) => {
@@ -195,12 +222,17 @@ export const initialState = {
         case "OPEN_SIGNUP_MODAL":
             return {...state,
                     isModalOpen: false,
-                    isSignupModalOpened: true}
+                    isSignupModalOpened: true,
+                    signupUserIncompleteInput: false}
 
         case "CLOSE_MODAL":
               return {...state,
               isSignupModalOpened: false,
-              isModalOpen: false}
+              isModalOpen: false,
+              userDataInput: {...state.userDataInput,
+                userNameInput: "",
+                userPasswordInput: ""}
+            }
 
         case FILTER_BY_VALUE:
             let newState = Object.assign({}, state);
@@ -226,18 +258,66 @@ export const initialState = {
                      productData: newState.filteredProducts }; 
 
         case "TRIGGER_USER_VALUE":
-            //   console.log(state.userData[0])
+              console.log(state.userDataInput)
+
+        case SEND_USERNAME_DATA:
+            console.log(action.payload.username)
+            return {...state,
+                    userDataInput: {...state.userDataInput,
+                                    userNameInput: action.payload.username}
+                     }
+        case SEND_PASSWORD_DATA:
+            console.log(action.payload.password)
+            return {...state,
+                userDataInput: {...state.userDataInput,
+                                userPasswordInput: action.payload.password}
+                 }
 
         case SIGN_UP_USER:
             console.log("reached reducer successfully");
-            let username = action.payload.userName;
-            let password = action.payload.userPassword;
-            console.log(username, password)
-            return {...state,
-            userData: {name: username, pass: password, id: ++userId}
+            let usr = state.userDataInput.userNameInput;
+            let pswrd = state.userDataInput.userPasswordInput;
+            let obj = { name: usr,
+                        pass: pswrd, 
+                        id: ++userId };
+            if(usr === "" || pswrd === "") {
+                return {...state,
+                    signupUserIncompleteInput: true,
+                    }
+            } else {
+                return {
+                    ...state,
+                    isSignupModalOpened: false,
+                    userData: [...state.userData,
+                                obj],
+                    userDataInput: {...state.userDataInput,
+                                    userNameInput: "",
+                                    userPasswordInput: ""}
+                };
             }
-                
 
+        case "ERROR_MESSAGE":
+            return {...state,
+                signupUserIncompleteInput: true}
+        
+        case LOG_IN_USER:
+            let loginInputUser = action.payload.username;
+            let loginInputPassword = action.payload.password;
+            //input loginInputUser in displayedName state
+            for (let i = 0; i < state.userData.length; i++) {
+                if (loginInputUser === state.userData[i].name && loginInputPassword === state.userData[i].pass) {
+                    return {
+                        ...state,
+                        isModalOpen: false
+                    }
+                } else {
+                    console.log("unknown user")
+                    return {...state,
+                        signinUserFalseInput: true}
+                }
+            }
+            return state
+            
           default:
             return state;
       }

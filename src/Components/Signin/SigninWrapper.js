@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Signin from "./Signin.js"
+import {logInUser} from "../SideBar/Redux"
 
 
 const mapStateToProps = (state) => {
@@ -21,6 +22,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         signUpModalOpened: () => {
            dispatch({type: "OPEN_SIGNUP_MODAL"})
+        },
+        logInHandler: (username, password) => {
+            dispatch(logInUser({username: username, password: password}))
         }
     }
 }   

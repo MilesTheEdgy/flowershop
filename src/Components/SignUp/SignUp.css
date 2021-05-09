@@ -1,4 +1,4 @@
-.modal {
+.signup-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -13,32 +13,35 @@
     pointer-events: none;
   }
   
-  .modal.enter-done {
+  .signup-modal.enter-done {
     opacity: 1;
     pointer-events: visible;
   }
   
-  .modal.exit {
+  .signup-modal.exit {
     opacity: 0;
   }
   
-  .modal-content {
+  .signup-modal-content {
     width: 400px;
     height: 500px;
     background-image: url(../../Images/flowersSidebarBackground.png);
     transition: all 0.3s ease-in-out;
     transform: translateY(-200px);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
   } 
 
-  .modal.enter-done .modal-content {
+  .signup-modal.enter-done .signup-modal-content {
     transform: translateY(0);
   }
   
-  .modal.exit .modal-content {
+  .signup-modal.exit .signup-modal-content {
     transform: translateY(-200px);
   }
   
-  .modal-header {
+  .signup-modal-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +49,7 @@
     /* border: 0px solid rgba(0, 0, 0, 0.2) ; */
   }
 
-  .modal-title {
+  .signup-modal-title {
     padding-bottom: 20px;
     font-family: 'Pacifico', cursive;
 
@@ -63,19 +66,19 @@
     font-weight: 40px;
   }
   
-  .modal-body {
-    padding: 0px 0px 0px 0px;
+  .signup-modal-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* margin-top: 20px; */
   }
 
-  .modal-input-field {
+  .signup-modal-input-field {
       width: 80%;
   }
 
-  .modal-username-field {
+  .signup-modal-username-field {
     display: flex;
     flex-direction: column;
   }
@@ -95,7 +98,7 @@
       background-clip: text;
   }
 
-  .modal-password-field {
+  .signup-modal-password-field {
     display: flex;
     flex-direction: column;
   }
@@ -115,19 +118,30 @@
     background-clip: text;
 
 }
-  .modal-submit {
-      display: flex;
-      justify-content: center;
-      padding-top: 30px;
+
+  .signup-modal-error-messsge {
+    color: red;
+    margin-top: 10px;
+    visibility: hidden;
   }
 
-  .modal-submit-button {
+  .signup-modal-error-messsge-active {
+    color: red;
+    margin-top: 10px;
+  } 
+
+  .signup-modal-submit {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 10px;
+  }
+
+  .signup-modal-submit-button {
     background-color: rgb(24, 102, 116);
     background-image: url(../../Images/Submit-button-photo.png);
     background-size: cover;
-    padding: 15px 30px;
     border-radius: 7px;
-
+    padding: 10px 20px;
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
     color: white;
@@ -136,14 +150,14 @@
 
 
 
-  .modal-footer {
+  .signup-modal-footer {
     display: flex;
     padding: 10px;
-    justify-content: space-between;
-    /* border: 0px solid rgba(0, 0, 0, 0.2); */
+    justify-content: flex-end;
+    border: 0px solid rgba(0, 0, 0, 0.2);
 
   }
 
-  .modal-sign-up-paragraph {
+  .signup-modal-sign-up-paragraph {
     color:white;
   }

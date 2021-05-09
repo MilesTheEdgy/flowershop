@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { signUpUser, sendUserNameData, sendPasswordData } from "../SideBar/Redux"
+import {signUpUser} from "../SideBar/Redux"
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./SignUp.css";
@@ -19,6 +19,17 @@ const SignUpModal = (props) => {
     };
   }, []);
 
+  const [userNameInput, setUserNameInput] = useState("");
+  const [userPasswordInput, setUserPasswordInput] = useState("")
+
+  const userNameHandler = (e) => {
+    setUserNameInput(e.target.value)
+  }
+ 
+  const userPasswordHandler = (e) => {
+    setUserPasswordInput(e.target.value)
+  }
+
   return ReactDOM.createPortal(
     <CSSTransition
       in={props.isSignupModalOpened}
@@ -36,7 +47,7 @@ const SignUpModal = (props) => {
                     <p className = "p-username">Username</p>
                     <input tag = "username"
                            placeholder = "eg: muhammet-aldulaimi"
-                           onChange = {props.userNameHandler}
+                           onChange = {userNameHandler}
                       /> 
                 </div>
                 <div className = "signup-modal-password-field">
@@ -44,7 +55,7 @@ const SignUpModal = (props) => {
                     <input tag = "password"
                            type = "password"
                            placeholder = "eg: someStrongPassword123"
-                           onChange = {props.userPasswordHandler}
+                           onChange = {userPasswordHandler}
                     /> 
                 </div>
               </div>
@@ -52,7 +63,7 @@ const SignUpModal = (props) => {
                 <p>Please make sure you filled both fields</p>
               </div>
               <div className = "signup-modal-submit"> 
-                <button onClick = {props.userInfoSubmitHandler}
+                <button onClick = {() => props.userInfoSubmitHandler(userNameInput, userPasswordInput)}
                         className = "signup-modal-submit-button"
                         type = "submit">Submit
                 </button>
@@ -78,7 +89,7 @@ const mapStateToProps = (state) => {
     return {
         isModalOpen: state.isModalOpen,
         isSignupModalOpened: state.isSignupModalOpened,
-        userDataInput: state.userDataInput,
+        userData: state.userData,
         signupUserIncompleteInput: state.signupUserIncompleteInput
     }
 }
@@ -91,16 +102,17 @@ const mapDispatchToProps = (dispatch) => {
         modalClosed : () => {
             dispatch({type: "CLOSE_MODAL"})
         },
-        userInfoSubmitHandler: () => {
-              dispatch({type: "SIGN_UP_USER"})
-        },
-        userNameHandler: (e) => {
-          let userNameValue = e.target.value;
-          dispatch(sendUserNameData({username: userNameValue}))
-        },
-        userPasswordHandler: (e) => {
-          let passwordValue = e.target.value;
-          dispatch(sendPasswordData({password: passwordValue}))
+        userInfoSubmitHandler: (username, password) => {
+            // console.log("reached prop successfully")
+            // console.log(username, password, "values for username and password in prop")
+            if (username === ""){
+              dispatch({type: "ERROR_MESSAGE"})
+            }
+            else if (password === ""){
+              dispatch({type: "ERROR_MESSAGE"})
+            }  else {
+              dispatch(signUpUser({userName: username, userPassword: password}))
+            }
         },
         triggerTest: () => {
           dispatch({type: "TRIGGER_USER_VALUE"})
