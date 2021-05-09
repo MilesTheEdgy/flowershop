@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Signin from "./Signin.js"
+import SignUpModal from "./SignUp.js"
 
 
 const mapStateToProps = (state) => {
@@ -18,11 +18,8 @@ const mapDispatchToProps = (dispatch) => {
         },
         modalClosed : () => {
             dispatch({type: "CLOSE_MODAL"})
-        },
-        signUpModalOpened: () => {
-           dispatch({type: "OPEN_SIGNUP_MODAL"})
         }
     }
 }   
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpModal);

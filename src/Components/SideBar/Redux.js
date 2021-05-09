@@ -13,6 +13,7 @@ export const initialState = {
             pass: ""
         }
     ],
+
     appliedFilters: [],
     productData: [
         {   
@@ -161,13 +162,8 @@ export const initialState = {
         },
     ]
   };
-  
-  const actions = {
-    type: "TOGGLE_SIDEBAR",
-    type: "OPEN_MODAL",
-    type: "CLOSE_MODAL"
-  };
 
+  
   const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 
    export const userStringFnc = (payload) => {

@@ -44,7 +44,7 @@ const Modal = (props) => {
               </div>
           </div>
           <div className="modal-footer">
-            <p className = "modal-sign-up-paragraph">New? <a onClick = {props.signUpModalOpened}>sign up!</a></p>
+            <p className = "modal-sign-up-paragraph">New? <a className = "modal-sign-up-link" onClick = {props.signUpModalOpened}>sign up!</a></p>
             <button className="button" onClick={props.closeModal} >
               Close
             </button>
