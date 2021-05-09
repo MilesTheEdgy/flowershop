@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
     return {
         isSidebarOpen: state.isSidebarOpen,
         isModalOpen: state.isModalOpen,
-        searchString: state.searchString
+        userData: state.userData
     }
 }
 
@@ -22,9 +22,6 @@ const mapDispatchToProps = (dispatch) => {
             let input = e.target.value
             dispatch(userStringFnc({value: input}))
         },
-        triggerUserValue: () => {
-            dispatch({type: "TRIGGER_USER_VALUE"})
-        }
     }
 }
 

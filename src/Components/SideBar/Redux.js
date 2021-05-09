@@ -1,11 +1,18 @@
 import {createStore} from "redux";
 
+let userId = 0
+
 export const initialState = {
     isSignupModalOpened: false,
     isSidebarOpen: false,
     isModalOpen : false,
     searchString: "",
-    userData: [],
+    userData: [
+        {
+            user: "",
+            pass: ""
+        }
+    ],
     appliedFilters: [],
     productData: [
         {   
@@ -163,11 +170,19 @@ export const initialState = {
 
   const FILTER_BY_VALUE = "FILTER_BY_VALUE"
 
-   export const userStringFnc = (payload) => ({
-    type: FILTER_BY_VALUE,
-    payload
- })
+   export const userStringFnc = (payload) => {
+    return {type: FILTER_BY_VALUE,
+            payload}
+ }
 
+ const SIGN_UP_USER = "SIGN_UP_USER"
+
+ export const signUpUser = (payload) => {
+     return {
+         type: SIGN_UP_USER,
+         payload
+     }
+ }
 
 
   
@@ -188,6 +203,7 @@ export const initialState = {
 
         case "CLOSE_MODAL":
               return {...state,
+              isSignupModalOpened: false,
               isModalOpen: false}
 
         case FILTER_BY_VALUE:
@@ -210,12 +226,21 @@ export const initialState = {
                 newState.filteredProducts = initialState.productData;
                 }
             }
-            console.log(newState);
              return { ...newState,
                      productData: newState.filteredProducts }; 
 
-      case "TRIGGER_USER_VALUE":
-              alert(state.searchString)
+        case "TRIGGER_USER_VALUE":
+            //   console.log(state.userData[0])
+
+        case SIGN_UP_USER:
+            console.log("reached reducer successfully");
+            let username = action.payload.userName;
+            let password = action.payload.userPassword;
+            console.log(username, password)
+            return {...state,
+            userData: {name: username, pass: password, id: ++userId}
+            }
+                
 
           default:
             return state;
