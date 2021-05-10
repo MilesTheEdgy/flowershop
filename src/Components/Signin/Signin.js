@@ -42,6 +42,9 @@ const Modal = (props) => {
                     <input onChange = {(e) => setPasswordInput(e.target.value)} type = "password" tag = "password" placeholder = "eg: someStrongPassword123"/> 
                 </div>
               </div>
+              <div className = {props.signinUserFalseInput ? "modal-error-message-active" : "modal-error-message"}>
+                <p>Your username or password does not match our database</p>
+              </div>
               <div className = "modal-submit"> 
                 <button onClick = {() => props.logInHandler(usernameInput, passwordInput)} className = "modal-submit-button">Submit</button>
               </div>

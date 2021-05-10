@@ -122,12 +122,16 @@
   .signup-modal-error-messsge {
     color: red;
     margin-top: 10px;
+    font-size: 19px;
+    font-weight: 500;
     visibility: hidden;
   }
 
   .signup-modal-error-messsge-active {
     color: red;
     margin-top: 10px;
+    font-size: 19px;
+    font-weight: 500; 
   } 
 
   .signup-modal-submit {
@@ -160,4 +164,30 @@
 
   .signup-modal-sign-up-paragraph {
     color:white;
+  }
+
+  .signedup-modal-user-signedup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signedup-modal-thankyou {
+    text-align: center;
+    font-family: 'Pacifico';
+    font-size: 50px;
+    color: rgb(228, 140, 140);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.384);
+    margin-top: 30px;
+  }
+
+  .signedup-modal-signInParagraph {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 35px;
+    margin-top: 40px;
+    color: rgb(228, 140, 140);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.384);
+    width: 80%;
   }

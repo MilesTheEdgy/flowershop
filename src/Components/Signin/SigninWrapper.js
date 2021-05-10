@@ -6,7 +6,8 @@ import {logInUser} from "../SideBar/Redux"
 const mapStateToProps = (state) => {
     return {
         isModalOpen: state.isModalOpen,
-        isSignupModalOpened: state.isSignupModalOpened
+        isSignupModalOpened: state.isSignupModalOpened,
+        signinUserFalseInput: state.errorMessages.signinUserFalseInput
     }
 }
 

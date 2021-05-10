@@ -115,10 +115,26 @@
     background-clip: text;
 
 }
+
+  .modal-error-message {
+    color: red;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 19px;
+    font-weight: 500;
+    visibility: hidden;
+  }
+  .modal-error-message-active {
+    color: red;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 19px;
+    font-weight: 500;
+  }
   .modal-submit {
       display: flex;
       justify-content: center;
-      padding-top: 30px;
+      /* padding-top: 30px; */
   }
 
   .modal-submit-button {

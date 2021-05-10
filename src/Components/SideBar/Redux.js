@@ -10,14 +10,14 @@ export const initialState = {
         userNameInput: "",
         userPasswordInput: ""
     },
-    userData: [
-        {
-            name: "muhammed",
-            pass: "aldulaimi"
-        }
-    ],
+    userData: [],
+    errorMessages: {
+        signupUserIncompleteInput: false,
+        signinUserFalseInput: false
+    },
     signupUserIncompleteInput: false,
     signinUserFalseInput: false,
+    didUserSignUp: false,
     appliedFilters: [],
     productData: [
         {   
@@ -217,18 +217,25 @@ export const logInUser = (payload) => {
 
         case "OPEN_MODAL":
               return {...state,
-              isModalOpen: true}
+              isModalOpen: true,
+              errorMessages: {...state.errorMessages,
+                signinUserFalseInput    : false}
+            }
         
         case "OPEN_SIGNUP_MODAL":
             return {...state,
                     isModalOpen: false,
                     isSignupModalOpened: true,
-                    signupUserIncompleteInput: false}
+                    errorMessages: {...state.errorMessages,
+                                    signupUserIncompleteInput: false}
+                    }
 
         case "CLOSE_MODAL":
               return {...state,
               isSignupModalOpened: false,
               isModalOpen: false,
+              didUserSignUp: false,
+              
               userDataInput: {...state.userDataInput,
                 userNameInput: "",
                 userPasswordInput: ""}
@@ -282,17 +289,19 @@ export const logInUser = (payload) => {
                         id: ++userId };
             if(usr === "" || pswrd === "") {
                 return {...state,
-                    signupUserIncompleteInput: true,
+                    errorMessages: {...state.errorMessages,
+                                    signupUserIncompleteInput: true}
                     }
             } else {
                 return {
                     ...state,
-                    isSignupModalOpened: false,
                     userData: [...state.userData,
                                 obj],
                     userDataInput: {...state.userDataInput,
                                     userNameInput: "",
-                                    userPasswordInput: ""}
+                                    userPasswordInput: ""},
+                    didUserSignUp: true,
+                    isSignupModalOpened: false
                 };
             }
 
@@ -302,22 +311,25 @@ export const logInUser = (payload) => {
         
         case LOG_IN_USER:
             let loginInputUser = action.payload.username;
+            console.log(loginInputUser);
             let loginInputPassword = action.payload.password;
+            console.log(loginInputPassword);
             //input loginInputUser in displayedName state
             for (let i = 0; i < state.userData.length; i++) {
+                console.log("in the for loop, loop number ", i)
                 if (loginInputUser === state.userData[i].name && loginInputPassword === state.userData[i].pass) {
+                    console.log("the matching name and pass was: ", state.userData[i].name, state.userData[i].pass)
                     return {
                         ...state,
                         isModalOpen: false
                     }
                 } else {
-                    console.log("unknown user")
-                    return {...state,
-                        signinUserFalseInput: true}
+                    console.log("unsuccessful loop")
                 }
             }
-            return state
-            
+            return {...state,
+                 errorMessages: {...state.errorMessages,
+                            signinUserFalseInput: true}}            
           default:
             return state;
       }

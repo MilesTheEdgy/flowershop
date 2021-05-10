@@ -3,7 +3,7 @@ import SidebarWrapper from "./Components/SideBar/SidebarWrapper";
 import Main from "./Components/Main/Main.js";
 import HeaderWrapper from "./Components/Header/HeaderWrapper";
 import SigninWrapper from "./Components/Signin/SigninWrapper";
-import SignUp from "./Components/SignUp/SignUp"
+import SignupRouter from "./Components/SignUp/SignupRouter"
 import "./App.css"
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
           <HeaderWrapper/>
           <SidebarWrapper/>
           <SigninWrapper/>
-          <SignUp/>
+          <SignupRouter/>
           <Main/>
       </div>
     );
