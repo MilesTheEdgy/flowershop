@@ -10,7 +10,7 @@ const TemplateCard = (props) => {
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text"> {props.text} </p>
                     <p className="card-text"> <b>$ {props.price} </b></p>
-                    <a href="#" className="btn btn-primary">Add to cart</a>
+                    <a href="#" className="btn btn-primary" onClick = {props.addItem}>Add to cart</a>
                 </div>
             </div>
     )

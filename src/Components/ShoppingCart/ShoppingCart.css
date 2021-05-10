@@ -1,0 +1,196 @@
+.shopping-cart-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .shopping-cart-modal.enter-done {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  
+  .shopping-cart-modal.exit {
+    opacity: 0;
+  }
+  
+  .shopping-cart-modal-content {
+    width: 800px;
+    height: 600px;
+    /* background-image: url(../../Images/flowersSidebarBackground.png); */
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-200px);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+  } 
+
+  .shopping-cart-modal.enter-done .shopping-cart-modal-content {
+    transform: translateY(0);
+  }
+  
+  .shopping-cart-modal.exit .shopping-cart-modal-content {
+    transform: translateY(-200px);
+  }
+  
+  .shopping-cart-modal-header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .shopping-cart-phantom-button {
+      visibility: hidden;
+  }
+
+  .shopping-cart-modal-title {
+    padding-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+
+    background-image: linear-gradient(45deg, #a9dba4, #e25734);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+    
+    font-size: 45px;
+    font-weight: 40px;
+  }
+  
+  .shopping-cart-modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 20px; */
+  }
+
+  .shopping-cart-modal-input-field {
+      width: 80%;
+  }
+
+  .shopping-cart-modal-username-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-username {
+      padding-top: 10px;
+      font-size: 20px;
+      font-family: 'Titillium Web', sans-serif;
+
+      background-image: linear-gradient(45deg, #a9dba4, #e25734);
+      background-size: 100%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      background-clip: text;
+  }
+
+  .shopping-cart-modal-password-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-password {
+    padding-top: 10px;
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
+
+    background-image: linear-gradient(45deg, #a9dba4, #e25734);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+
+}
+
+  .shopping-cart-modal-error-messsge {
+    color: red;
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 500;
+    visibility: hidden;
+  }
+
+  .shopping-cart-modal-error-messsge-active {
+    color: red;
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 500; 
+  } 
+
+  .shopping-cart-modal-submit {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 10px;
+  }
+
+  .shopping-cart-modal-submit-button {
+    background-color: rgb(24, 102, 116);
+    background-image: url(../../Images/Submit-button-photo.png);
+    background-size: cover;
+    border-radius: 7px;
+    padding: 10px 20px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: white;
+    text-shadow: violet;
+  }
+
+
+
+  .shopping-cart-modal-footer {
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+    border: 0px solid rgba(0, 0, 0, 0.2);
+
+  }
+
+  .shopping-cart-modal-sign-up-paragraph {
+    color:white;
+  }
+
+  .signedup-modal-user-signedup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signedup-modal-thankyou {
+    text-align: center;
+    font-family: 'Pacifico';
+    font-size: 50px;
+    color: rgb(228, 140, 140);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.384);
+    margin-top: 30px;
+  }
+
+  .signedup-modal-signInParagraph {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 35px;
+    margin-top: 40px;
+    color: rgb(228, 140, 140);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.384);
+    width: 80%;
+  }

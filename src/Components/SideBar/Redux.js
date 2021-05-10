@@ -4,13 +4,18 @@ let userId = 0
 
 export const initialState = {
     isSignupModalOpened: false,
-    isSidebarOpen: false,
     isModalOpen : false,
+    isShoppingCartModalOpen: false,
+    isSidebarOpen: false,
     userDataInput: {
         userNameInput: "",
         userPasswordInput: ""
     },
     userData: [],
+    currentUser:    {
+            username: "User",
+            password: ""
+                    },
     errorMessages: {
         signupUserIncompleteInput: false,
         signinUserFalseInput: false
@@ -164,49 +169,57 @@ export const initialState = {
             imageurl: require("../../Images/Flowers/MixedFlowersMini.jpg").default
     
         },
-    ]
+    ],
+    shoppingCart: [],
+    cartItemAmount: 0
   };
 
   
- const FILTER_BY_VALUE = "FILTER_BY_VALUE"
-
-   export const userStringFnc = (payload) => {
+const FILTER_BY_VALUE = "FILTER_BY_VALUE"
+export const userStringFnc = (payload) => {
     return {type: FILTER_BY_VALUE,
             payload}
  }
     
 const SEND_USERNAME_DATA = "SEND_USERNAME_DATA"
-
-    export const sendUserNameData = (payload) => {
+export const sendUserNameData = (payload) => {
      return { type: SEND_USERNAME_DATA,
              payload
      }
  }
 
- const SEND_PASSWORD_DATA = "SEND_PASSWORD_DATA"
- export const sendPasswordData = (payload) => {
+const SEND_PASSWORD_DATA = "SEND_PASSWORD_DATA"
+export const sendPasswordData = (payload) => {
      return {
          type: SEND_PASSWORD_DATA,
          payload
      }
  } 
- const SIGN_UP_USER = "SIGN_UP_USER"
 
- export const signUpUser = (payload) => {
+const SIGN_UP_USER = "SIGN_UP_USER"
+export const signUpUser = (payload) => {
      return {
          type: SIGN_UP_USER,
          payload
      }
  }
 
- const LOG_IN_USER = "LOG_IN_USER"
-
+const LOG_IN_USER = "LOG_IN_USER"
 export const logInUser = (payload) => {
     return {
         type: LOG_IN_USER,
         payload
     }
 }
+
+const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
+export const AddItemToCart = (payload) => {
+    return {
+        type: ADD_ITEM_TO_CART,
+        payload
+    }
+}
+
 
   
   const Reducer = (state = initialState, action) => {
@@ -235,6 +248,7 @@ export const logInUser = (payload) => {
               isSignupModalOpened: false,
               isModalOpen: false,
               didUserSignUp: false,
+              isShoppingCartModalOpen: false,
               
               userDataInput: {...state.userDataInput,
                 userNameInput: "",
@@ -265,7 +279,7 @@ export const logInUser = (payload) => {
                      productData: newState.filteredProducts }; 
 
         case "TRIGGER_USER_VALUE":
-              console.log(state.userDataInput)
+              console.log("reached reducer")
 
         case SEND_USERNAME_DATA:
             console.log(action.payload.username)
@@ -321,7 +335,10 @@ export const logInUser = (payload) => {
                     console.log("the matching name and pass was: ", state.userData[i].name, state.userData[i].pass)
                     return {
                         ...state,
-                        isModalOpen: false
+                        isModalOpen: false,
+                        currentUser: {...state.currentUser,
+                                        username: loginInputUser,
+                                        password: loginInputPassword}
                     }
                 } else {
                     console.log("unsuccessful loop")
@@ -329,7 +346,20 @@ export const logInUser = (payload) => {
             }
             return {...state,
                  errorMessages: {...state.errorMessages,
-                            signinUserFalseInput: true}}            
+                            signinUserFalseInput: true}}     
+                            
+        case ADD_ITEM_TO_CART:
+            let clickedProduct = action.payload.clickedProduct;
+            console.log("reacher reducer, value is: ", clickedProduct)
+            return {...state,
+                shoppingCart:[ ...state.shoppingCart,
+                            clickedProduct],
+                cartItemAmount: state.shoppingCart.length + 1
+                        }
+
+        case "DISPLAY_SHOPPING_CART_MODAL":
+            return {...state,
+                isShoppingCartModalOpen: true}
           default:
             return state;
       }

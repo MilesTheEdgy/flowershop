@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component {
 
@@ -7,9 +9,13 @@ class Header extends React.Component {
         return (
             <nav className={this.props.isSidebarOpen ? "navbar bg-transparent NaviBar-Closed" : "navbar bg-transparent NaviBar"}>
                 <div className="container-fluid">
-                    <div className="navbar-brand">Welcome <strong>User</strong>
+                    <div className="navbar-brand">Welcome <strong>{this.props.currentUsername}</strong>
                      </div>
-                    <div className = "d-flex justify-content-end">
+                    <div className = "items-aligned-end d-flex justify-content-end">
+                        <span className="fa-layers fa-2x fa-fw" onClick = {this.props.displayShoppingCartModal}>
+                            <FontAwesomeIcon icon={faShoppingCart} />
+                            <span className="fa-layers-counter fontawesome-counter">{this.props.cartItemAmount}</span>
+                        </span>
                         <a className = "nav-link" onClick = {this.props.modalOpened}>Sign In</a>
                         <form className="d-flex">
                             <input className="form-control me-2"
@@ -17,8 +23,6 @@ class Header extends React.Component {
                                 placeholder="Search"
                                 onChange = {this.props.filterByValue}
                             />
-                            <p className="btn" 
-                                    onClick = {() => {console.log(this.props.userData)}}>Search</p>
                         </form>
                     </div>
                 </div>  

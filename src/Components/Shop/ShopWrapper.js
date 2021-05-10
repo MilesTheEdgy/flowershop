@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Shop from "./Shop.js"
+import { AddItemToCart } from "../SideBar/Redux"
 
 
 const mapStateToProps = (state) => {
@@ -14,11 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        modalOpened : () => {
-            dispatch({type: "OPEN_MODAL"})
-        },
-        modalClosed : () => {
-            dispatch({type: "CLOSE_MODAL"})
+        addItemToCart: (clickedProduct) => {
+            dispatch(AddItemToCart({clickedProduct: clickedProduct}))
         }
     }
 }   

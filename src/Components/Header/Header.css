@@ -12,3 +12,13 @@
 .nav-link {
     cursor: pointer;
 }
+
+.items-aligned-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fontawesome-counter {
+    font-size: 1.3em;
+}

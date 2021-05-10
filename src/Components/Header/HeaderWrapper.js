@@ -6,7 +6,8 @@ const mapStateToProps = (state) => {
     return {
         isSidebarOpen: state.isSidebarOpen,
         isModalOpen: state.isModalOpen,
-        userData: state.userData
+        currentUsername: state.currentUser.username,
+        cartItemAmount: state.cartItemAmount
     }
 }
 
@@ -22,6 +23,9 @@ const mapDispatchToProps = (dispatch) => {
             let input = e.target.value
             dispatch(userStringFnc({value: input}))
         },
+        displayShoppingCartModal: () => {
+            dispatch({type: "DISPLAY_SHOPPING_CART_MODAL"})
+        }
     }
 }
 

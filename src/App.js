@@ -5,6 +5,7 @@ import HeaderWrapper from "./Components/Header/HeaderWrapper";
 import SigninWrapper from "./Components/Signin/SigninWrapper";
 import SignupRouter from "./Components/SignUp/SignupRouter"
 import "./App.css"
+import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
           <SidebarWrapper/>
           <SigninWrapper/>
           <SignupRouter/>
+          <ShoppingCart/>
           <Main/>
       </div>
     );
