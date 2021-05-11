@@ -31,9 +31,13 @@
     background-color: white;
     transition: all 0.3s ease-in-out;
     transform: translateY(-200px);
+<<<<<<< HEAD
 
 
   }
+=======
+  } 
+>>>>>>> 751fc89671fcce2038d2b4831f25c76f159c4683
 
   .shopping-cart-modal.enter-done .shopping-cart-modal-content {
     transform: translateY(0);
