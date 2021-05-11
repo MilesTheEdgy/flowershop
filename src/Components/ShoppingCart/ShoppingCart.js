@@ -29,16 +29,17 @@ const ShoppingCart = (props) => {
       <div className="shopping-cart-modal" onClick={props.modalClosed}>
         <div className="shopping-cart-modal-content" onClick={e => e.stopPropagation()}>
             <div className = "shopping-cart-modal-header">
-                <p>Name</p>
-                <p>Description</p>
-                <p>Price</p>
-                <button className = "shopping-cart-phantom-button">delete</button>
+                <p className = "shopping-cart-modal-header-children">Name</p>
+                <p className = "shopping-cart-modal-header-children">Description</p>
+                <p className = "shopping-cart-modal-header-children">Price</p>
+                <button className = "shopping-cart-modal-header-children shopping-cart-phantom-button">delete</button>
             </div>
             <div className = "shopping-cart-modal-body">
                 <CartItem/>
             </div>
-            <div className = "shopping-cart-modal-footer">
-            </div>
+            {/* <div className = "shopping-cart-modal-footer">
+              this is the footer
+            </div> */}
         </div>
       </div>
     </CSSTransition>,
