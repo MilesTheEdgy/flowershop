@@ -1,13 +1,21 @@
 import React from "react";
 import "./CartItem.css"
 
-const CartItem = (props) => {
+const CartItem = ({name, text, price}) => {
     return (
         <div className = "cart-item">
-            <p>Roses</p>
-            <p>Beautiful hand picked roses fresh out of our gardins</p>
-            <p>$ 9.99</p>
-            <button>Remove</button>
+            <div className = "cart-item-child">
+                <p>{name}</p>
+            </div>
+            <div className = "cart-item-child">
+                <p>{text}</p>  
+            </div>
+            <div className = "cart-item-child">
+                <p>${price}</p>
+            </div>
+            <div className = "cart-item-child">
+                <button>Remove</button>
+            </div>
         </div>
     )
 }

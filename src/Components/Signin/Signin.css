@@ -1,4 +1,4 @@
-.modal {
+.signin-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -13,16 +13,16 @@
     pointer-events: none;
   }
   
-  .modal.enter-done {
+  .signin-modal.enter-done {
     opacity: 1;
     pointer-events: visible;
   }
   
-  .modal.exit {
+  .signin-modal.exit {
     opacity: 0;
   }
   
-  .modal-content {
+  .signin-modal-content {
     width: 400px;
     height: 500px;
     background-image: url(../../Images/flowersSidebarBackground.png);
@@ -30,15 +30,15 @@
     transform: translateY(-200px);
   } 
 
-  .modal.enter-done .modal-content {
+  .signin-modal.enter-done .signin-modal-content {
     transform: translateY(0);
   }
   
-  .modal.exit .modal-content {
+  .signin-modal.exit .signin-modal-content {
     transform: translateY(-200px);
   }
   
-  .modal-header {
+  .signin-modal-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@
     /* border: 0px solid rgba(0, 0, 0, 0.2) ; */
   }
 
-  .modal-title {
+  .signin-modal-title {
     padding-bottom: 20px;
     font-family: 'Pacifico', cursive;
 
@@ -63,7 +63,7 @@
     font-weight: 40px;
   }
   
-  .modal-body {
+  .signin-modal-body {
     padding: 0px 0px 0px 0px;
     display: flex;
     flex-direction: column;
@@ -71,11 +71,11 @@
     justify-content: center;
   }
 
-  .modal-input-field {
+  .signin-modal-input-field {
       width: 80%;
   }
 
-  .modal-username-field {
+  .signin-modal-username-field {
     display: flex;
     flex-direction: column;
   }
@@ -95,7 +95,7 @@
       background-clip: text;
   }
 
-  .modal-password-field {
+  .signin-modal-password-field {
     display: flex;
     flex-direction: column;
   }
@@ -116,7 +116,7 @@
 
 }
 
-  .modal-error-message {
+  .signin-modal-error-message {
     color: red;
     text-align: center;
     padding-top: 5px;
@@ -124,20 +124,20 @@
     font-weight: 500;
     visibility: hidden;
   }
-  .modal-error-message-active {
+  .signin-modal-error-message-active {
     color: red;
     text-align: center;
     padding-top: 5px;
     font-size: 19px;
     font-weight: 500;
   }
-  .modal-submit {
+  .signin-modal-submit {
       display: flex;
       justify-content: center;
       /* padding-top: 30px; */
   }
 
-  .modal-submit-button {
+  .signin-modal-submit-button {
     background-color: rgb(24, 102, 116);
     background-image: url(../../Images/Submit-button-photo.png);
     background-size: cover;
@@ -152,7 +152,7 @@
 
 
 
-  .modal-footer {
+  .signin-modal-footer {
     display: flex;
     padding: 10px;
     justify-content: space-between;
@@ -160,11 +160,11 @@
 
   }
 
-  .modal-sign-up-paragraph {
+  .signin-modal-sign-up-paragraph {
     color:white;
   }
 
-  .modal-sign-up-link {
+  .signin-modal-sign-up-link {
     cursor: pointer;
     text-decoration: none;
     font-size: 17px;

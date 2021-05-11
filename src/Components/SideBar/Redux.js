@@ -18,7 +18,8 @@ export const initialState = {
                     },
     errorMessages: {
         signupUserIncompleteInput: false,
-        signinUserFalseInput: false
+        signinUserFalseInput: false,
+        userNotSignedIn: false
     },
     signupUserIncompleteInput: false,
     signinUserFalseInput: false,
@@ -171,7 +172,8 @@ export const initialState = {
         },
     ],
     shoppingCart: [],
-    cartItemAmount: 0
+    cartItemAmount: 0,
+    calculatedTotal: 0
   };
 
   
@@ -246,10 +248,12 @@ export const AddItemToCart = (payload) => {
         case "CLOSE_MODAL":
               return {...state,
               isSignupModalOpened: false,
-              isModalOpen: false,
+              isModalOpen: false, 
               didUserSignUp: false,
               isShoppingCartModalOpen: false,
-              
+              errorMessages: {...state.errorMessages,
+                userNotSignedIn: false},
+
               userDataInput: {...state.userDataInput,
                 userNameInput: "",
                 userPasswordInput: ""}
@@ -353,13 +357,31 @@ export const AddItemToCart = (payload) => {
             console.log("reacher reducer, value is: ", clickedProduct)
             return {...state,
                 shoppingCart:[ ...state.shoppingCart,
-                            clickedProduct],
+                        clickedProduct,
+                        ],
                 cartItemAmount: state.shoppingCart.length + 1
                         }
 
         case "DISPLAY_SHOPPING_CART_MODAL":
             return {...state,
                 isShoppingCartModalOpen: true}
+        
+        case "CALCULATE_TOTAL":
+            let len = state.shoppingCart.length;
+            let total = 0;
+            for (let i = 0; i < len; i++) {
+                total += state.shoppingCart[i].price
+            }
+            return {...state,
+                calculatedTotal: total}
+        
+        case "NOT_SIGNED_IN":
+            console.log("triggering")
+            return {...state,
+                    errorMessages: {...state.errorMessages,
+                                    userNotSignedIn: true}
+                                }
+
           default:
             return state;
       }

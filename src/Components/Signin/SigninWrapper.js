@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Signin from "./Signin.js"
+import SigninModal from "./Signin.js"
 import {logInUser} from "../SideBar/Redux"
 
 
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }   
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(SigninModal);

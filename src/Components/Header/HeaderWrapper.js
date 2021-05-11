@@ -23,8 +23,13 @@ const mapDispatchToProps = (dispatch) => {
             let input = e.target.value
             dispatch(userStringFnc({value: input}))
         },
-        displayShoppingCartModal: () => {
+        displayShoppingCartModal: (username) => {
+            if (username === "User") {
+                dispatch({type: "NOT_SIGNED_IN"})
+            } else {
+            dispatch({type: "CALCULATE_TOTAL"})
             dispatch({type: "DISPLAY_SHOPPING_CART_MODAL"})
+            }
         }
     }
 }

@@ -6,13 +6,14 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 class Header extends React.Component {
 
     render () {
+        let i = 0
         return (
             <nav className={this.props.isSidebarOpen ? "navbar bg-transparent NaviBar-Closed" : "navbar bg-transparent NaviBar"}>
                 <div className="container-fluid">
                     <div className="navbar-brand">Welcome <strong>{this.props.currentUsername}</strong>
                      </div>
                     <div className = "items-aligned-end d-flex justify-content-end">
-                        <span className="fa-layers fa-2x fa-fw" onClick = {this.props.displayShoppingCartModal}>
+                        <span className="fa-layers fa-2x fa-fw" onClick = {() => this.props.displayShoppingCartModal(this.props.currentUsername)}>
                             <FontAwesomeIcon icon={faShoppingCart} />
                             <span className="fa-layers-counter fontawesome-counter">{this.props.cartItemAmount}</span>
                         </span>

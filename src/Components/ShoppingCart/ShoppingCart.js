@@ -29,15 +29,20 @@ const ShoppingCart = (props) => {
       <div className="shopping-cart-modal" onClick={props.modalClosed}>
         <div className="shopping-cart-modal-content" onClick={e => e.stopPropagation()}>
             <div className = "shopping-cart-modal-header">
-                <p>Name</p>
-                <p>Description</p>
-                <p>Price</p>
-                <button className = "shopping-cart-phantom-button">delete</button>
+                <p className = "shopping-cart-modal-header-child">Name</p>
+                <p className = "shopping-cart-modal-header-child">Description</p>
+                <p className = "shopping-cart-modal-header-child">Price</p>
             </div>
             <div className = "shopping-cart-modal-body">
-                <CartItem/>
+                { 
+                  props.shoppingCart.map((product) => {
+                  return <CartItem name = {product.name} text = {product.text} price = {product.price} key = {product.key} />
+                })
+                }
             </div>
             <div className = "shopping-cart-modal-footer">
+                <p>Your total is {props.calculatedTotal}</p>
+                <button> Accept </button>
             </div>
         </div>
       </div>
@@ -51,36 +56,16 @@ const ShoppingCart = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isModalOpen: state.isModalOpen,
-        isSignupModalOpened: state.isSignupModalOpened,
-        userDataInput: state.userDataInput,
-        signupUserIncompleteInput: state.errorMessages.signupUserIncompleteInput,
-        didUserSignUp: state.didUserSignUp,
-        isShoppingCartModalOpen: state.isShoppingCartModalOpen
+        isShoppingCartModalOpen: state.isShoppingCartModalOpen,
+        shoppingCart: state.shoppingCart,
+        calculatedTotal: state.calculatedTotal
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        modalOpened : () => {
-            dispatch({type: "OPEN_MODAL"})
-        },
         modalClosed : () => {
             dispatch({type: "CLOSE_MODAL"})
-        },
-        userInfoSubmitHandler: () => {
-              dispatch({type: "SIGN_UP_USER"})
-        },
-        userNameHandler: (e) => {
-          let userNameValue = e.target.value;
-          dispatch(sendUserNameData({username: userNameValue}))
-        },
-        userPasswordHandler: (e) => {
-          let passwordValue = e.target.value;
-          dispatch(sendPasswordData({password: passwordValue}))
-        },
-        triggerTest: () => {
-          dispatch({type: "TRIGGER_USER_VALUE"})
         }
     }
 }   
