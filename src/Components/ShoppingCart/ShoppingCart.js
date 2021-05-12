@@ -48,7 +48,7 @@ const ShoppingCart = (props) => {
             </div>
             <div className = "shopping-cart-modal-footer">
                 <p>Your total is ${props.calculatedTotal}</p>
-                <button className = "shopping-cart-modal-footer-button"> Accept </button>
+                <button onClick = {props.submitShoppingCart} className = "shopping-cart-modal-footer-button"> Accept </button>
             </div>
         </div>
       </div>
@@ -76,6 +76,9 @@ const mapDispatchToProps = (dispatch) => {
         removeItemFromCart: (product) => {
           dispatch(removeItemFromCart({removedProduct: product}));
           dispatch({type: "CALCULATE_TOTAL"});
+        },
+        submitShoppingCart: () => {
+          dispatch({type: "SUBMIT_SHOPPING_CART"})
         }
     }
 }   

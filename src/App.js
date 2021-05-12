@@ -7,6 +7,7 @@ import SignupRouter from "./Components/SignUp/SignupRouter"
 import "./App.css"
 import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
 import SigninFalse from "./Components/OtherModals/SigninFalse"
+import ShoppingCartSubmit from "./Components/OtherModals/ShoppingCartSubmit"
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <SignupRouter/>
           <ShoppingCart/>
           <SigninFalse/>
+          <ShoppingCartSubmit/>
           <Main/>
       </div>
     );

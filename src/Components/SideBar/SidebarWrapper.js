@@ -4,8 +4,7 @@ import Sidebar from "./SideBar.js"
 
 const mapStateToProps = (state) => {
     return {
-        isSidebarOpen: state.isSidebarOpen,
-        isModalOpen: state.isModalOpen
+        isSidebarOpen: state.isSidebarOpen
     }
 }
 
@@ -13,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sidebarChange: () => {
+        toggleSidebar: () => {
             dispatch({type: "TOGGLE_SIDEBAR"})
         }
     }

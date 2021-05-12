@@ -179,7 +179,8 @@ export const initialState = {
     ],
     shoppingCart: [],
     cartItemAmount: 0,
-    calculatedTotal: 0
+    calculatedTotal: 0,
+    didUserSubmitCart: false
   };
 
   
@@ -263,6 +264,7 @@ export const removeItemFromCart = (payload) => {
               isModalOpen: false, 
               didUserSignUp: false,
               isShoppingCartModalOpen: false,
+              didUserSubmitCart: false,
               errorMessages: {...state.errorMessages,
                 userNotSignedIn: false},
 
@@ -409,6 +411,12 @@ export const removeItemFromCart = (payload) => {
 
             return {...state,
                 calculatedTotal: roundedTotal}
+        
+        case "SUBMIT_SHOPPING_CART":
+            return {...state,
+                isShoppingCartModalOpen: false,
+                didUserSubmitCart: true
+                    }        
         
         case "NOT_SIGNED_IN":
             console.log("triggering")
