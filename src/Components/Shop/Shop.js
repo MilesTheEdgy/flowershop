@@ -14,7 +14,8 @@ class Shop extends React.Component {
                                 title={product.title}
                                 text={product.text} 
                                 price={product.price} 
-                                imageurl={product.imageurl} 
+                                imageurl={product.imageurl}
+                                key = {product}
                                 addItem = {() => {
                                     this.props.addItemToCart(product)
                                     }}/>

@@ -6,7 +6,6 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 class Header extends React.Component {
 
     render () {
-        let i = 0
         return (
             <nav className={this.props.isSidebarOpen ? "navbar bg-transparent NaviBar-Closed" : "navbar bg-transparent NaviBar"}>
                 <div className="container-fluid">
@@ -17,7 +16,12 @@ class Header extends React.Component {
                             <FontAwesomeIcon icon={faShoppingCart} />
                             <span className="fa-layers-counter fontawesome-counter">{this.props.cartItemAmount}</span>
                         </span>
-                        <a className = "nav-link" onClick = {this.props.modalOpened}>Sign In</a>
+                        {
+                            this.props.isUserLoggedIn ?
+                            <a className = "nav-link" onClick = {this.props.logOutUser}>Sign Out</a>
+                            :
+                            <a className = "nav-link" onClick = {this.props.modalOpened}>Sign In</a>
+                        }
                         <form className="d-flex">
                             <input className="form-control me-2"
                                 type="search" 

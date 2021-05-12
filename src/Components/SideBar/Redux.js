@@ -11,10 +11,16 @@ export const initialState = {
         userNameInput: "",
         userPasswordInput: ""
     },
-    userData: [],
+    userData: [
+        {
+            name: "def",
+            pass: "def"
+        }
+    ],
     currentUser:    {
             username: "User",
-            password: ""
+            password: "",
+            isUserLoggedIn: false
                     },
     errorMessages: {
         signupUserIncompleteInput: false,
@@ -222,7 +228,13 @@ export const AddItemToCart = (payload) => {
     }
 }
 
-
+const REMOVE_ITEM_FROM_CART = "REMOVE_ITEM_FROM_CART";
+export const removeItemFromCart = (payload) => {
+    return {
+        type: REMOVE_ITEM_FROM_CART,
+        payload
+    }
+}
   
   const Reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -329,51 +341,74 @@ export const AddItemToCart = (payload) => {
         
         case LOG_IN_USER:
             let loginInputUser = action.payload.username;
-            console.log(loginInputUser);
             let loginInputPassword = action.payload.password;
-            console.log(loginInputPassword);
-            //input loginInputUser in displayedName state
             for (let i = 0; i < state.userData.length; i++) {
-                console.log("in the for loop, loop number ", i)
                 if (loginInputUser === state.userData[i].name && loginInputPassword === state.userData[i].pass) {
-                    console.log("the matching name and pass was: ", state.userData[i].name, state.userData[i].pass)
                     return {
                         ...state,
                         isModalOpen: false,
                         currentUser: {...state.currentUser,
                                         username: loginInputUser,
-                                        password: loginInputPassword}
+                                        password: loginInputPassword,
+                                        isUserLoggedIn: true}
                     }
-                } else {
-                    console.log("unsuccessful loop")
                 }
             }
             return {...state,
                  errorMessages: {...state.errorMessages,
-                            signinUserFalseInput: true}}     
+                            signinUserFalseInput: true}}
+        case "LOG_OUT_USER":
+            return {...state,
+                currentUser: {
+                                username: "User",
+                                password: "",
+                                isUserLoggedIn: false
+                            },
+                cartItemAmount: 0,
+                shoppingCart: []
+            }
+
                             
         case ADD_ITEM_TO_CART:
             let clickedProduct = action.payload.clickedProduct;
-            console.log("reacher reducer, value is: ", clickedProduct)
             return {...state,
                 shoppingCart:[ ...state.shoppingCart,
                         clickedProduct,
                         ],
-                cartItemAmount: state.shoppingCart.length + 1
+                cartItemAmount: state.cartItemAmount + 1
                         }
+        case REMOVE_ITEM_FROM_CART:
+            let removedProduct = action.payload.removedProduct;
+            let shoppingCartCopy = [...state.shoppingCart];
+            console.log("shopping cart copy is ", shoppingCartCopy);
+            console.log("product is", removedProduct)
+            for (let i = 0; i < shoppingCartCopy.length; i++) {
+                console.log("looping through items", i)
+                if (removedProduct === shoppingCartCopy[i]) {
+                    shoppingCartCopy.splice(i, 1)
+                    console.log("new shoppin cart is", shoppingCartCopy)
+                    return {...state,
+                            shoppingCart: shoppingCartCopy,
+                            cartItemAmount: state.shoppingCart.length - 1}
+                }
+            }
+            return state
 
         case "DISPLAY_SHOPPING_CART_MODAL":
             return {...state,
                 isShoppingCartModalOpen: true}
         
         case "CALCULATE_TOTAL":
+            console.log("recalculating")
             let len = state.shoppingCart.length;
             let total = 0;
             for (let i = 0; i < len; i++) {
                 total += state.shoppingCart[i].price
             }
+            let roundedTotal = total.toFixed(2)
+
             return {...state,
-                calculatedTotal: total}
+                calculatedTotal: roundedTotal}
         
         case "NOT_SIGNED_IN":
             console.log("triggering")

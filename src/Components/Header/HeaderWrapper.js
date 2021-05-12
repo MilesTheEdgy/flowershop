@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
         isSidebarOpen: state.isSidebarOpen,
         isModalOpen: state.isModalOpen,
         currentUsername: state.currentUser.username,
-        cartItemAmount: state.cartItemAmount
+        cartItemAmount: state.cartItemAmount,
+        isUserLoggedIn: state.currentUser.isUserLoggedIn
     }
 }
 
@@ -30,6 +31,9 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: "CALCULATE_TOTAL"})
             dispatch({type: "DISPLAY_SHOPPING_CART_MODAL"})
             }
+        },
+        logOutUser: () => {
+            dispatch({type: "LOG_OUT_USER"})
         }
     }
 }

@@ -31,13 +31,9 @@
     background-color: white;
     transition: all 0.3s ease-in-out;
     transform: translateY(-200px);
-<<<<<<< HEAD
 
 
   }
-=======
-  } 
->>>>>>> 751fc89671fcce2038d2b4831f25c76f159c4683
 
   .shopping-cart-modal.enter-done .shopping-cart-modal-content {
     transform: translateY(0);
@@ -57,11 +53,19 @@
   }
   
   .shopping-cart-modal-body {
-    max-height: calc(80vh - 210px);
+    max-height: calc(80vh - 230px);
     overflow-y: auto;
   }
   .shopping-cart-modal-footer {
     margin-top: 30px;
+    position: fixed;
+    bottom: 1px;
+    left: 20px;
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .shopping-cart-modal-footer-button {
+    position: fixed;
+    right: 30px;
   }

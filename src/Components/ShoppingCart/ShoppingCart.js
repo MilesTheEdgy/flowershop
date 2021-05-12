@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { sendUserNameData, sendPasswordData } from "../SideBar/Redux"
+import { removeItemFromCart } from "../SideBar/Redux"
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./ShoppingCart.css";
@@ -36,13 +36,19 @@ const ShoppingCart = (props) => {
             <div className = "shopping-cart-modal-body">
                 { 
                   props.shoppingCart.map((product) => {
-                  return <CartItem name = {product.name} text = {product.text} price = {product.price} key = {product.key} />
+                  return <CartItem 
+                  name = {product.name}
+                  text = {product.text}
+                  price = {product.price} 
+                  key = {product}
+                  removeItem = {() => props.removeItemFromCart(product)}
+                   />
                 })
                 }
             </div>
             <div className = "shopping-cart-modal-footer">
-                <p>Your total is {props.calculatedTotal}</p>
-                <button> Accept </button>
+                <p>Your total is ${props.calculatedTotal}</p>
+                <button className = "shopping-cart-modal-footer-button"> Accept </button>
             </div>
         </div>
       </div>
@@ -66,6 +72,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         modalClosed : () => {
             dispatch({type: "CLOSE_MODAL"})
+        },
+        removeItemFromCart: (product) => {
+          dispatch(removeItemFromCart({removedProduct: product}));
+          dispatch({type: "CALCULATE_TOTAL"});
         }
     }
 }   
